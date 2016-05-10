@@ -1,0 +1,39 @@
+importFrom(mvtnorm, rmvnorm)
+
+importFrom(rags2ridges, covML, evaluateS, evaluateSfit, ridgePathS, symm, ridgeS, adjacentMat, default.target)
+
+importFrom(gRbase, triangulate, rip, is.complete, jTree)
+
+importFrom(RBGL, is.triangulated)
+
+importFrom(graph, numEdges)
+
+importFrom(graphics, contour, "legend", lines, par, plot, points, text)
+
+importFrom(grDevices, dev.off, pdf, postscript, setEPS)
+
+importFrom(igraph, betweenness, closeness, clusters, degree, delete.edges, E, ecount, evcent, graph.adjacency, layout.circle, maximum.cardinality.search, plot.igraph, igraph.to.graphNEL)
+
+importFrom(fdrtool, fdrtool)
+
+importFrom(marray, maPalette)
+
+importFrom(Matrix, bandSparse, bdiag)
+
+importFrom(stats, constrOptim, cov2cor, nlm,  nlminb, optim, runif)
+
+importFrom(utils, setTxtProgressBar, txtProgressBar)
+
+importFrom(expm, "%^%")
+
+exportPattern("^[^\\.]")
+
+export(array2longitudinal, centerVAR1data, CIGofVAR1, createA, dataVAR1, evaluateVAR1fit, graphVAR1, impulseResponseVAR1, loglikLOOCVcontourVAR1, loglikLOOCVVAR1, longitudinal2array, mutualInfoVAR1, optPenaltyPchordal, optPenaltyVAR1, plotVAR1data, ridgePathVAR1, ridgePchordal, ridgeVAR1, sparsifyVAR1, loglikVAR1, nodeStatsVAR1, support4ridgeP)
+
+exportPattern("^[[:alpha:]]+")
+
+useDynLib(ragt2ridges)
+
+
+
+

@@ -1,0 +1,15 @@
+citHeader("To cite the ragt2ridges package in publications please use:")
+
+citEntry(entry="Article",
+    title = "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data",
+    author = personList(as.person("Miok, V"), as.person("Wilting, S M"), as.person("van Wieringen, W N")),
+    journal = "submitted",
+    volume = "", 
+    number = "", 
+    pages =  "",
+    year = 2015,
+    textVersion =
+      paste("Miok, V., Wilting, S.M., van Wieringen, W.N. (2015). ",
+		"Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data ", 
+        	"submitted", sep = "")
+)
