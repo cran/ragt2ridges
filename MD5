@@ -1,4 +1,4 @@
-4deb174478a95d81cbf4cb670d23712c *DESCRIPTION
+b7ee5cf890a2083c98db238f844a5964 *DESCRIPTION
 448ea037ef3bf7ddab020a59063fe1ab *NAMESPACE
 4edf0666b5f8f752ffcd6de704d8f4fc *R/CIGofVAR1.r
 dd8ef6cd721958f1326c114c116b39ae *R/RcppExports.R
@@ -26,12 +26,13 @@ e005cfe2e5675e4763bb5e6c25d7702e *R/sparsifyVAR1.r
 97827e4c25fcff47c45a651d5193e50e *R/support4ridgeP.r
 bdc8ec136a7536a1d18280abf86c71c5 *data/hpvP53.rda
 7d63e8390e36bfcf0a8969b39338d0e1 *inst/CITATION
+2fef33880aaae11851b2b08b1c36c87a *inst/NEWS.Rd
 2b6f81be927768beb1008e6291a8c3fe *man/CIGofVAR1.Rd
 1d91ca8b92875397b1f14b5f9c1395af *man/array2longitudinal.Rd
 af86fdd115e9efc7c9ad91d8dbb3420a *man/centerVAR1data.Rd
 bad76f240ba7c96116a46a636b29fdf7 *man/createA.Rd
 2424415691ac6efa5295c098005be6cf *man/dataVAR1.Rd
-a3dc2fdeea98f06f2783511c3c7261b7 *man/evaluateVAR1fit.Rd
+666adf48cf3df0d35fe653f43f36be98 *man/evaluateVAR1fit.Rd
 cb22ae76258a4a0f969460ab7c5e9830 *man/graphVAR1.Rd
 9222f4475742294e806bca5bc945b9d0 *man/hpvP35.Rd
 34e4d6dd6a3f05c2fbd2dece82b00827 *man/impulseResponseVAR1.Rd
@@ -44,7 +45,7 @@ b02dea54e9b9e62cd77d46e334a65d4a *man/loglikLOOCVVAR1.Rd
 b4d6dcb8f6fbe205e82219e7ba5754c5 *man/optPenaltyPchordal.Rd
 bc61f05bf5f77aa696736c5d2e38f349 *man/optPenaltyVAR1.Rd
 62776207be36dd8b6369a96acef1a561 *man/plotVAR1data.Rd
-5843287e06deaae0d05834ba1431035a *man/ragt2ridges-package.Rd
+c2d0f065d79904958be84b3ff4945ccd *man/ragt2ridges-package.Rd
 9621a10d3db66e595ed60924be5cb8db *man/ridgePathVAR1.Rd
 4ca038664f00bb2c060afd4c50b92687 *man/ridgePchordal.Rd
 aa92145d17ad0cd3f044c43f73a911cb *man/ridgeVAR1.Rd

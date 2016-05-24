@@ -46,6 +46,6 @@ Y <- centerVAR1data(Y)
 VAR1hat <- ridgeVAR1(Y, 1, 1)
 
 # evaluate fit VAR(1) model
-evaluateVAR1fit(Y, VAR1hat$A, symm(VAR1hat$P))
+\dontrun{ evaluateVAR1fit(Y, VAR1hat$A, symm(VAR1hat$P)) }
 }
 
