@@ -54,7 +54,7 @@ A list-object with slots:
 When the target of the precision matrix is specified through the \code{targetPtype}-argument, the target is data-driven (for both \code{fitA="ss"} and \code{fitA="ml"}). In particular, it is updated at each iteration when \code{fitA="ml"}. 
 }
 \references{
-Miok, V., Wilting, S.M., Van Wieringen, W.N. (2015), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", submitted. 
+Miok, V., Wilting, S.M., Van Wieringen, W.N. (2016), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", \emph{Biometrical Journal}, accepted. 
 }
 \author{
 Wessel N. van Wieringen <w.vanwieringen@vumc.nl>

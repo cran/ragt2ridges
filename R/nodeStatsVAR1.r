@@ -136,17 +136,15 @@ nodeStatsVAR1 <- function(sparseA, sparseP, as.table = FALSE){
 		varsY <- diag(Syy)
 
 		# Calculate nodes' mutual information
-		MI                 <- mutualInfoVAR1(sparseA, sparseP, 2) 
-		MIatTplus1         <- MI[,1] 
+		MIatTplus1         <- mutualInfoVAR1(sparseA, sparseP, 1) 
 		names(MIatTplus1)  <- colnames(sparseP)
-		MIatTplus2         <- MI[,2] 
+		MIatTplus2         <- mutualInfoVAR1(sparseA, sparseP, 2)  
 		names(MIatTplus2)  <- colnames(sparseP)
 
 		# Calculate nodes' influence response
-		IRF                <- impulseResponseVAR1(sparseA, 2)
-		IRFatTplus1        <- IRF[,1] 
+		IRFatTplus1        <- apply(abs(impulseResponseVAR1(sparseA, 1)), 2, mean)
 		names(MIatTplus1)  <- colnames(sparseP)
-		IRFatTplus2        <- IRF[,2] 
+		IRFatTplus2        <- apply(abs(impulseResponseVAR1(sparseA, 2)), 2, mean)
 		names(IRFatTplus2) <- colnames(sparseP)
 
 		# return

@@ -4,19 +4,18 @@
 Impulse response analysis of the VAR(1) model
 }
 \description{
-Evaluate the mean absolute impulse responses of the VAR(1) model. It assesses the effect of an innovation (error) at one time point on the 
-variates at future time points. In the VAR(1) model this amounts to studying powers of \eqn{\mathbf{A}}, the matrix of regression coefficients. 
+Evaluate the impulse response of the VAR(1) model. It assesses the effect of an innovation (error) at one time point on the 
+variates at a future time point. In the VAR(1) model this amounts to studying powers of \eqn{\mathbf{A}}, the matrix of regression coefficients. 
 }
 \usage{
-impulseResponseVAR1(A, Tmax, figure=FALSE)
+impulseResponseVAR1(A, T)
 }
 \arguments{
 \item{A}{ A \code{matrix} \eqn{\mathbf{A}} of regression parameters. }
-\item{Tmax}{ Maximum number (positive \code{numeric} of length one) of time points up to which the impulse responses are to be evaluated. }
-\item{figure}{ A \code{logical}, indicating whether a summary plot of the impulse responses should be generated. }
+\item{T}{ Positive \code{numeric} of length one specifying time point for which the impulse response is to be evaluated. }
 }
 \value{
-Object of class \code{matrix}. Rows correspond to covariates, columns to time points, and elements to the column-mean of the absolute impulse responses. 
+Object of class \code{matrix}. Rows and columns correspond to covariates, elements to the impulse response of 'row variate' on the 'column variate' on \code{T} time points from the current. 
 }
 \references{
 Hamilton, J. D. (1994), Time series analysis. Princeton: Princeton university press.
@@ -45,6 +44,6 @@ Y <- dataVAR1(n, T, A, SigmaE)
 VAR1hat <- ridgeVAR1(Y, 1, 1)
 
 # impulse response analysis
-impulseResponseVAR1(VAR1hat$A, 10, figure=TRUE)
+impulseResponseVAR1(VAR1hat$A, 10)
 }
 

@@ -21,7 +21,7 @@ are assumed to be sparse regression coefficient and error precision matrices. Fr
 For both graph types the function calculates various measures of centrality: node degree, betweenness centrality, closeness centrality, and eigenvalue
 centrality. It also calculates the number of positive and the number of negative edges for each node. For more information on network measures, consult, e.g., Newman (2010).
 
-In addition, for each variate the mutual information (with all other variates) (Van Wieringen et al., 2015), mean impulse response (Hamilton, 1994; Lutkepohl 2005), the (error) variance, and the partial error variance are presented. 
+In addition, for each variate the mutual information (with all other variates) (Miok et al., 2016), mean impulse response (Hamilton, 1994; Lutkepohl 2005), the (error) variance, and the partial error variance are presented. 
 }
 \value{
 An object of class \code{list} (when \code{as.table = FALSE}) with slots:
@@ -64,7 +64,7 @@ Lutkepohl, H. (2005), New Introduction to Multiple Time Series Analysis. Springe
 
 Newman, M.E.J. (2010). "Networks: an introduction", Oxford University Press.
 
-Miok, V., Wilting, S.M., Van Wieringen, W.N. (2015), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", submitted. 
+Miok, V., Wilting, S.M., Van Wieringen, W.N. (2016), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", \emph{Biometrical Journal}, accepted. 
 }
 \author{
 Wessel N. van Wieringen <w.vanwieringen@vumc.nl>, Carel F.W. Peeters.

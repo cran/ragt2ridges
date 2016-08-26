@@ -1,14 +1,15 @@
 \name{sparsifyVAR1}
 \alias{sparsifyVAR1}
 \title{
-Function that determines the null and non-null elements of \eqn{\mathbf{A}}
+Function that determines the support of auto-regression parameter of the VARX(1) model.
 }
 \description{
 Function that determines the null and non-null elements of \eqn{\mathbf{A}}, the matrix of regression coefficients. 
 }
 \usage{
 sparsifyVAR1(A, SigmaE, threshold=c("absValue", "localFDR", "top"), 
-absValueCut=0.25, FDRcut=0.8, top=10, statistics=FALSE, verbose=FALSE)
+absValueCut=0.25, FDRcut=0.8, top=10, zerosA=matrix(nrow=0, ncol=2),
+statistics=FALSE, verbose=TRUE)
 }
 \arguments{
 \item{A}{ \code{Matrix} \eqn{\mathbf{A}} of regression parameters. }
@@ -17,29 +18,34 @@ absValueCut=0.25, FDRcut=0.8, top=10, statistics=FALSE, verbose=FALSE)
 \item{absValueCut}{ A \code{numeric} giving the cut-off for element selection based on absolute value thresholding. }
 \item{FDRcut}{ A \code{numeric} giving the cut-off for element selection based on local false discovery rate (FDR) thresholding. }
 \item{top}{ A \code{numeric} giving the number of elements of \eqn{\code{A}} which is to be selected, based on absolute value thresholding. }
-\item{statistics}{ A \code{logical} indicator: should test statistics be returned. This only applies when 
+\item{zerosA}{ \code{Matrix} with indices of entries of \eqn{\mathbf{A}} that are (prior to sparsification) known to be zero. The matrix comprises two columns, each row corresponding to an entry of \eqn{\mathbf{A}}. The first column contains the row indices and the second the column indices. }
+\item{statistics}{ \code{Logical} indicator: should test statistics be returned. This only applies when 
 \code{threshold = "localFDR"}}
-\item{verbose}{ A \code{logical} indicator: should intermediate output be printed on the screen? }
+\item{verbose}{ \code{Logical} indicator: should intermediate output be printed on the screen? }
 }
 \value{
 A \code{list}-object with slots:
-\item{zeros}{ A \code{matrix} with indices of entries of \eqn{\mathbf{A}} that are identified to be null. }
-\item{nonzeros}{ A \code{matrix} with indices of entries of \eqn{\mathbf{A}} that are identified to be non-null. }
-\item{statistics}{ A \code{matrix} with test statistics employed in the local FDR procedure. }
-The matrices \code{zeros} and \code{nonzeros} comprise two columns, each row corresponding to an entry of \eqn{\mathbf{A}}. The first column contains the row indices and the second the column indices.
+\item{zerosA}{ \code{Matrix} with indices of entries of \eqn{\mathbf{A}} that are identified to be null.  It includes the elements of \eqn{\mathbf{A}} assumed to be zero prior to the sparsification as specified through the \code{zerosAknown} option. }
+\item{nonzerosA}{ \code{Matrix} with indices of entries of \eqn{\mathbf{A}} that are identified to be non-null. }
+\item{statisticsA}{ \code{Matrix} with test statistics employed in the local FDR procedure. }
+The matrices \code{zerosA} and \code{nonzerosA} comprises two columns, each row corresponding to an entry of \eqn{\mathbf{A}}. The first column contains the row indices and the second the column indices.
 }
 \details{
-When \code{threshold = "localFDR"} the function divides the elements of (possibly regularized) input matrix \eqn{\mathbf{A}} of regression coefficients by their standard errors. Subsequently, the support of the matrix \eqn{\mathbf{A}} is determined by usage of local FDR. In that case a mixture model is fitted to the nonredundant (standardized) elements of \eqn{\mathbf{A}} by \code{fdrtool}. The decision to retain elements is then based on the argument \code{FDRcut}. Elements with a posterior probability \eqn{>=q}  \code{FDRcut} (equalling 1 - local FDR) are retained. See Strimmer (2008) for further details. Alternatively, the support of \eqn{\mathbf{A}} is determined by simple thresholding on the absolute values of matrix entries (\code{threshold = "absValue"}). A third option (\code{threshold = "top"}) is to retain a prespecified number of matrix entries based on absolute values of the elements of \eqn{\mathbf{A}}. For example, one could wish to retain those
+When \code{threshold = "localFDR"} the function, following Lutkepohl (2005), divides the elements of (possibly regularized) input matrix \eqn{\mathbf{A}} of regression coefficients by (an approximation of) their standard errors. Subsequently, the support of the matrix \eqn{\mathbf{A}} is determined by usage of local FDR. In that case a mixture model is fitted to the nonredundant (standardized) elements of \eqn{\mathbf{A}} by \code{fdrtool}. The decision to retain elements is then based on the argument \code{FDRcut}. Elements with a posterior probability \eqn{>=q}  \code{FDRcut} (equalling 1 - local FDR) are retained. See Strimmer (2008) for further details. Alternatively, the support of \eqn{\mathbf{A}} is determined by simple thresholding on the absolute values of matrix entries (\code{threshold = "absValue"}). A third option (\code{threshold = "top"}) is to retain a prespecified number of matrix entries based on absolute values of the elements of \eqn{\mathbf{A}}. For example, one could wish to retain those
 entries representing the ten strongest cross-temporal coefficients. 
      
 The argument \code{absValueCut} is only used when \code{threshold = "absValue"}. The argument \code{FDRcut} is only used when \code{threshold = "localFDR"}. The argument \code{top} is only used when \code{threshold = "top"}. 
+
+When prior to the sparsification knowledge on the support of \eqn{\mathbf{A}} is specified through the option \code{zerosA}, the corresponding elements of \eqn{\mathbf{A}} are then not taken along in the local FDR procedure.
 }
 \references{
-Strimmer, K. (2008), "fdrtool: a versatile R package for estimating local and tail area-based false discovery rates", \emph{Bioinformatics} 24(12): 1461-1462.
+Lutkepohl, H. (2005), New Introduction to Multiple Time Series Analysis. Springer, Berlin.
 
-Van Wieringen, W.N., Peeters, C.F.W. (2014), "Ridge Estimation of Inverse Covariance Matrices from High-Dimensional Data", arXiv:1403.0904 [stat.ME].
+Miok, V., Wilting, S.M., Van Wieringen, W.N. (2016), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", \emph{Biometrical Journal}, accepted. 
 
-Miok, V., Wilting, S.M., Van Wieringen, W.N. (2015), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", submitted. 
+Strimmer, K. (2008), ``fdrtool: a versatile R package for estimating local and tail area-based false discovery rates'', \emph{Bioinformatics} 24(12): 1461-1462.
+
+Van Wieringen, W.N., Peeters, C.F.W. (2016), ``Ridge Estimation of Inverse Covariance Matrices from High-Dimensional Data'', Computational Statistics and Data Analysis, 103, 284-303.
 }
 \author{
 Wessel N. van Wieringen <w.vanwieringen@vumc.nl>, Carel F.W. Peeters.
@@ -49,11 +55,14 @@ Wessel N. van Wieringen <w.vanwieringen@vumc.nl>, Carel F.W. Peeters.
 }
 \examples{
 # set dimensions
-p <- 3; n <- 4; T <- 10
+p <- 3
+n <- 4
+T <- 10
 
 # set model parameters
 SigmaE <- diag(p)/4
-A <- createA(p, "chain")
+A <- matrix(c(-0.1, -0.3, 0.6, 0.5, -0.4, 0, 0.3, -0.5, -0.2), 
+     byrow=TRUE, ncol=3)
 
 # generate data
 Y <- dataVAR1(n, T, A, SigmaE)

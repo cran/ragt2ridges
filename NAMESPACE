@@ -26,10 +26,6 @@ importFrom(utils, setTxtProgressBar, txtProgressBar)
 
 importFrom(expm, "%^%")
 
-exportPattern("^[^\\.]")
-
-export(array2longitudinal, centerVAR1data, CIGofVAR1, createA, dataVAR1, evaluateVAR1fit, graphVAR1, impulseResponseVAR1, loglikLOOCVcontourVAR1, loglikLOOCVVAR1, longitudinal2array, mutualInfoVAR1, optPenaltyPchordal, optPenaltyVAR1, plotVAR1data, ridgePathVAR1, ridgePchordal, ridgeVAR1, sparsifyVAR1, loglikVAR1, nodeStatsVAR1, support4ridgeP)
-
 exportPattern("^[[:alpha:]]+")
 
 useDynLib(ragt2ridges)

@@ -52,7 +52,7 @@ arma::mat armaRidgePAnyTarget(const arma::mat & S,
   }
   eig_sym(eigvals, eigvecs, eigvecs, "dc");
   eigvals = 0.5*eigvals;
-  arma::vec sqroot = sqrt(lambda + pow(eigvals, 2.0));
+  arma::vec sqroot = arma::sqrt(lambda + arma::pow(eigvals, 2.0));
 
   // Return target if shrunken evals are infinite and lambda is "large"
   // Usually happens for lambda >= 1e154
@@ -106,7 +106,7 @@ arma::mat armaRidgePScalarTarget(const arma::mat & S,
   arma::eig_sym(eigvals, eigvecs, S, "dc");
 
   eigvals = 0.5*(eigvals - lambda*alpha);
-  arma::vec sqroot = sqrt(lambda + pow(eigvals, 2.0));
+  arma::vec sqroot = arma::sqrt(lambda + arma::pow(eigvals, 2.0));
 
   // Return target if shrunken evals are infinite and lambda is "large"
   // Usually happens for lambda >= 1e154
@@ -463,7 +463,7 @@ inline arma::mat armaP_ridge_diag(const arma::vec & S, const arma::vec & target,
 		return target;
 	}
 	arma::vec U = (S - lambda * target) / 2;
-	return arma::diagmat((sqrt(U % U + lambda) - U) / lambda);
+	return arma::diagmat((arma::sqrt(U % U + lambda) - U) / lambda);
 }
 
 inline Rcpp::List armaEigenDecomp_blockDiagOnly(const arma::mat symMat, const arma::ivec blockDims){
@@ -676,7 +676,7 @@ inline arma::mat armaVAR1_COVYhat(arma::cube Y){
 	return COVY / COVYdof;
 }
 
-inline arma::mat armaVAR1_VARYhat(arma::cube Y, bool efficient, arma::mat unbalanced ){
+inline arma::mat armaVAR1_VARYhat(arma::cube Y, bool & efficient, arma::mat & unbalanced ){
 	/////////////////////////////////////////////////////////////////////////////////////////
 	// Variance estimation of the multivariate time series data.
 	/////////////////////////////////////////////////////////////////////////////////////////
@@ -706,7 +706,7 @@ inline arma::mat armaVAR1_VARYhat(arma::cube Y, bool efficient, arma::mat unbala
 	return VARY / VARYdof;
 }
 
-inline arma::mat armaVAR1_Ahat_ridgeML(arma::mat P, arma::mat COVY, const arma::mat eigvecVARY, const arma::vec eigvalVARY, const double lambdaA, arma::mat targetA){
+inline arma::mat armaVAR1_Ahat_ridgeML(arma::mat P, arma::mat COVY, const arma::mat eigvecVARY, const arma::vec eigvalVARY, const double & lambdaA, arma::mat targetA){
 	/////////////////////////////////////////////////////////////////////////////////////////
 	// Ridge ML estimate the regression coefficient matrix A of a VAR model
 	/////////////////////////////////////////////////////////////////////////////////////////
@@ -720,7 +720,7 @@ inline arma::mat armaVAR1_Ahat_ridgeML(arma::mat P, arma::mat COVY, const arma::
 	return eigvecP * ((arma::trans(eigvecP) * (targetA + P * COVY) * eigvecVARY) / (eigvalP * arma::trans(eigvalVARY) + lambdaA)) * arma::trans(eigvecVARY);
 }
 
-inline arma::mat armaVAR1_Ahat_ridgeML_speed(arma::mat P, arma::mat COVY, const arma::mat eigvecVARY, const arma::vec eigvalVARY, const double lambdaA, arma::mat targetA){
+inline arma::mat armaVAR1_Ahat_ridgeML_speed(arma::mat P, arma::mat COVY, const arma::mat eigvecVARY, const arma::vec eigvalVARY, const double & lambdaA, arma::mat targetA){
 	/////////////////////////////////////////////////////////////////////////////////////////
 	// Ridge ML estimate the regression coefficient matrix A of a VAR model
 	/////////////////////////////////////////////////////////////////////////////////////////
@@ -734,7 +734,7 @@ inline arma::mat armaVAR1_Ahat_ridgeML_speed(arma::mat P, arma::mat COVY, const 
 	return eigvecP * ((arma::trans(eigvecP) * (targetA + P * COVY)) / (eigvalP * arma::trans(eigvalVARY) + lambdaA)) * arma::trans(eigvecVARY);
 }
 
-inline arma::mat armaVAR1_Ahat_ridgeSS(arma::mat VARY, const arma::mat & COVY, const double & lambdaA, arma::mat & targetA){
+inline arma::mat armaVAR1_Ahat_ridgeSS(arma::mat VARY, const arma::mat & COVY, const double lambdaA, arma::mat & targetA){
 	/////////////////////////////////////////////////////////////////////////////////////////
 	// Least squares estimation of the regression parameter A of a VAR(1) model
 	/////////////////////////////////////////////////////////////////////////////////////////
@@ -868,8 +868,8 @@ std::string fitA, arma::mat & unbalanced, bool & diagP, bool & efficient, const 
 	}
     
 	// evaluate likelihood
-    double logDetP; double detPsign;
-    arma::log_det(logDetP, detPsign, Phat);
+	double logDetP; double detPsign;
+	arma::log_det(logDetP, detPsign, Phat);
 	double LL = (Y.n_cols - 1) * Y.n_slices * (logDetP - arma::accu(Se % Phat)) / 2;
 
 	return Rcpp::List::create(Rcpp::Named("A") = Ahat, Rcpp::Named("P") = Phat, Rcpp::Named("LL")=LL);

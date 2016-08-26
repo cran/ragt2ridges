@@ -1,4 +1,4 @@
-sparsifyVAR1 <- function(A, SigmaE, threshold=c("absValue", "localFDR", "top"), absValueCut=0.25, FDRcut=0.8, top=10, statistics=FALSE, verbose=FALSE){
+sparsifyVAR1 <- function(A, SigmaE, threshold=c("absValue", "localFDR", "top"), absValueCut=0.25, FDRcut=0.8, top=10, zerosA=matrix(nrow=0, ncol=2), statistics=FALSE, verbose=TRUE){
 	#####################################################################################################
 	#
 	# DESCRIPTION: 
@@ -18,7 +18,7 @@ sparsifyVAR1 <- function(A, SigmaE, threshold=c("absValue", "localFDR", "top"), 
 	# -> top         : element selection based on retainment 'top' number of absolute values of A.
 	#                  Only when threshold = 'top'. Default = 10
 	# -> statistics  : logical indicating if test statistics should be returned
-	#                  Only when threshold = 'localFDR'. Default = FALSE
+	#                  Only when threshold = "localFDR". Default = FALSE
 	# -> verbose     : Logical indicating if intermediate output should be printed on screen
 	#                  Only when threshold = 'localFDR'. Default = TRUE
 	#
@@ -60,8 +60,8 @@ sparsifyVAR1 <- function(A, SigmaE, threshold=c("absValue", "localFDR", "top"), 
 		if (absValueCut <= 0){ stop("Input (absValueCut) must be positive") }
         
 		# selection
-		nonzeros <- which(abs(A) >= absValueCut, arr.ind=TRUE)
-		zeros <- which(abs(A) < absValueCut, arr.ind=TRUE)
+		nonzerosA <- which(abs(A) >= absValueCut, arr.ind=TRUE)
+		zerosA <- which(abs(A) < absValueCut, arr.ind=TRUE)
 		H0statA <- NULL
 	}
 
@@ -89,21 +89,30 @@ sparsifyVAR1 <- function(A, SigmaE, threshold=c("absValue", "localFDR", "top"), 
 
 		# test statistics for elements of A: beta-hat / s.e.(beta-hat)
 		H0statA <- as.numeric(A / sqrt(t(outer(diag(solve(Syy)), diag(SigmaE)))))
-    
-		# 'testing'
-		lFDRs <- 1 - fdrtool(H0statA, "normal", cutoff.method="locfdr", plot=verbose, verbose=verbose)$lfdr
-		nonzeros <- which(matrix(lFDRs, ncol=ncol(A), byrow=FALSE) > FDRcut, arr.ind=TRUE)
-		zeros <- which(matrix(lFDRs, ncol=ncol(A), byrow=FALSE) <= FDRcut, arr.ind=TRUE)
+    		if (nrow(zerosA) > 0){ 
+			H0statA[zerosA] <- 0 
+			lFDRs <- 1 - fdrtool(as.numeric(H0statA[H0statA != 0]), "normal", cutoff.method="locfdr", plot=verbose, verbose=verbose)$lfdr
+			nonzerosA <- H0statA
+			nonzerosA[H0statA != 0] <- lFDRs
+			zerosA <- which(nonzerosA <= FDRcut[1], arr.ind=TRUE)
+			nonzerosA <- which(nonzerosA > FDRcut[1], arr.ind=TRUE)
+		} else {
+			lFDRs <- 1 - fdrtool(as.numeric(H0statA), "normal", cutoff.method="locfdr", plot=verbose, verbose=verbose)$lfdr
+			nonzerosA <- which(matrix(lFDRs, ncol=ncol(A), byrow=FALSE) > FDRcut[1], arr.ind=TRUE)
+			zerosA <- which(matrix(lFDRs, ncol=ncol(A), byrow=FALSE) <= FDRcut[1], arr.ind=TRUE)
+		}
+
+
 	}    
 	
 	if (verbose){
-        cat("-> Retained elements: ", nrow(nonzeros), "\n")
-        cat("-> Corresponding to", round(nrow(nonzeros)/(nrow(nonzeros) + nrow(zeros)), 4) * 100, "% of possible elements \n")
+        cat("-> Retained elements: ", nrow(nonzerosA), "\n")
+        cat("-> Corresponding to", round(nrow(nonzerosA)/(nrow(nonzerosA) + nrow(zerosA)), 4) * 100, "% of possible elements \n")
     }
     
 	# return the elements of 	
 	if (!statistics){ H0statA <- NULL }
-	return(list(nonzeros=nonzeros, zeros=zeros, statistics=H0statA))	    
+	return(list(nonzerosA=nonzerosA, zerosA=zerosA, statisticsA=H0statA))	    
 }
 
 

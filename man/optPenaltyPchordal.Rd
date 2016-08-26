@@ -1,10 +1,10 @@
 \name{optPenaltyPchordal}
 \alias{optPenaltyPchordal}
 \title{
-Automatic search for penalty parameter of ridge precision estimator
+Automatic search for penalty parameter of ridge precision estimator with known chordal support
 }
 \description{
-Automic search for the optimal ridge penalty parameter. Optimal in the sense that it yields the maximum cross-validated likelihood. The search employs the Brent algorithm as implemented in the \code{optim} function. 
+Automic search for the optimal ridge penalty parameter for the ridge estimator of the precision matrix with known chordal support. Optimal in the sense that it yields the maximum cross-validated likelihood. The search employs the Brent algorithm as implemented in the \code{optim} function. 
 }
 \usage{
 optPenaltyPchordal(Y, lambdaMin, lambdaMax, 
@@ -30,9 +30,9 @@ See the function \code{optim} for details on the implementation of the Brent alg
 A \code{numeric} with the LOOCV optimal choice for the ridge penalty parameter.
 }
 \references{
-Miok, V., Wilting, S.M., Van Wieringen, W.N. (2015), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", submitted. 
+Miok, V., Wilting, S.M., Van Wieringen, W.N. (2016), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", \emph{Biometrical Journal}, accepted. 
 
-Van Wieringen, W.N. and Peeters, C.F.W. (2014). Ridge Estimation of Inverse Covariance Matrices from High-Dimensional Data. arXiv:1403.0904 [stat.ME].
+Van Wieringen, W.N. and Peeters, C.F.W. (2016), "Ridge Estimation of Inverse Covariance Matrices from High-Dimensional Data", \emph{Computational Statistics and Data Analysis}, 103, 284-303.
 }
 \author{
 Wessel N. van Wieringen <w.vanwieringen@vumc.nl>

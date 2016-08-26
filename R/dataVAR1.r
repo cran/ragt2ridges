@@ -1,4 +1,4 @@
-dataVAR1 <- function(n, T, A, SigmaE){
+dataVAR1 <- function(n, T, A, SigmaE, TburnIn=1000){
 	#############################################################################
 	#
 	# DESCRIPTION:
@@ -9,6 +9,7 @@ dataVAR1 <- function(n, T, A, SigmaE){
 	# -> T        : Number of time points (per individual) to be sampled.
 	# -> A        : Matrix A of regression parameters.
 	# -> SigmaE   : Covariance matrix of the errors (innovations).
+	# -> TburnIn  : Number of time points to burn in the process.
 	#
 	# DEPENDENCIES:
 	# ...
@@ -33,13 +34,23 @@ dataVAR1 <- function(n, T, A, SigmaE){
 	if (length(T) != 1){ stop("Input (T) is of wrong length.") }
 	if (is.na(T)){ stop("Input (T) is not a positive integer.") }
 	if (T < 0){ stop("Input (T) is not a positive integer.") }
+	if (as.character(class(TburnIn)) != "numeric"){ stop("Input (TburnIn) is of wrong class.") }
+	if (length(TburnIn) != 1){ stop("Input (TburnIn) is of wrong length.") }
+	if (is.na(TburnIn)){ stop("Input (TburnIn) is not a positive integer.") }
+	if (TburnIn < 0){ stop("Input (TburnIn) is not a positive integer.") }
 
 	# warn user if the provided parameters do not correspond to a stationary process
 	# .isStationary(A)
 
 	# generate data
 	Y <- array(NA, dim=c(nrow(A), T, n))
-	Y[,1,] <- matrix(rmvnorm(n, sigma=SigmaE), nrow=nrow(A), byrow=FALSE)
+	Yupdate <- matrix(rmvnorm(n, sigma=SigmaE), nrow=nrow(A), byrow=FALSE)
+	if (TburnIn > 0){
+		for (t in 1:TburnIn){
+	        	Yupdate <- A %*% Yupdate + matrix(rmvnorm(n, sigma=SigmaE), nrow=nrow(A), byrow=TRUE)
+		}
+	}
+	Y[,1,] <- Yupdate
 	for (t in 2:T){
         	Y[,t,] <- A %*% Y[,t-1,] + matrix(rmvnorm(n, sigma=SigmaE), nrow=nrow(A), byrow=TRUE)
 	}

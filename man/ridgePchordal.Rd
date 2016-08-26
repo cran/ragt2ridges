@@ -1,7 +1,7 @@
 \name{ridgePchordal}
 \alias{ridgePchordal}
 \title{
-Ridge estimation for high-dimensional precision matrices with known support
+Ridge estimation for high-dimensional precision matrices with known chordal support
 }
 \description{
 Function that calculates various ridge estimators for high-dimensional precision matrices with known support. This support should form a chordal graph. If the provided support is not chordal, the function makes it so.
@@ -54,16 +54,16 @@ In case, \code{type="Alt"} no explicit expression of the maximizer of the ridge 
 }
 
 \value{
-If \code{grad=FALSE}, the function returns a regularized precision \code{matrix} with specified (possibly triangulated) sparsity structure.
+If \code{grad=FALSE}, the function returns a regularized precision \code{matrix} with specified chordal sparsity structure.
 
-If \code{grad=TRUE}, a list is returned comprising of i) the estimated precision matrix, and ii) the gradients at the initial and at the optimal (if reached) value. The gradient is returned and it can be checked whether it is indeed (close to) zero at the optimum.
+If \code{grad=TRUE}, a list is returned comprising of \emph{i)} the estimated precision matrix, and \emph{ii)} the gradients at the initial and at the optimal (if reached) value. The gradient is returned and it can be checked whether it is indeed (close to) zero at the optimum.
 }
 \references{
 Dahl, J., Roychowdhury, V., Vandenberghe, L. (2005), "Maximum likelihood estimation of Gaussian graphical models: numerical implementation and topology selection", Technical report, UCLA, 2005.
 
 Lauritzen, S.L. (2004). \emph{Graphical Models}. Oxford University Press.  
 
-Miok, V., Wilting, S.M., Van Wieringen, W.N. (2015), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", submitted. 
+Miok, V., Wilting, S.M., Van Wieringen, W.N. (2016), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", \emph{Biometrical Journal}, accepted. 
 }
 \author{
 Wessel N. van Wieringen <w.vanwieringen@vumc.nl>.

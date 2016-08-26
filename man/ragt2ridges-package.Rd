@@ -3,7 +3,7 @@
 \alias{ragt2ridges}
 \docType{package}
 \title{
-Ridge Estimation of the Vector Auto-Regressive (VAR) Processes
+Ridge Estimation of Vector Auto-Regressive (VAR) Processes
 }
 \description{
 Ridge maximum likelihood estimation of vector auto-regressive processes and supporting functions for their exploitation. Currently, it includes: 
@@ -40,7 +40,7 @@ License: \tab GPL (>= 2) \cr
 Wessel N. van Wieringen <w.vanwieringen@vumc.ml>
 }
 \references{
-Miok, V., Wilting, S.M., Van Wieringen, W.N. (2015), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", submitted. 
+Miok, V., Wilting, S.M., Van Wieringen, W.N. (2016), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", \emph{Biometrical Journal}, accepted. 
 }
 \keyword{ package }
 \seealso{
