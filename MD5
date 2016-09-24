@@ -1,5 +1,5 @@
-f617c4726c773beb2e21ee76182a7bc6 *DESCRIPTION
-7b7fc51ed0151f5ce4c474a5207592cc *NAMESPACE
+77534a981300fe4ad3e43cd1f1821a33 *DESCRIPTION
+f2fd85dff6b828857c1c4991601858dd *NAMESPACE
 4edf0666b5f8f752ffcd6de704d8f4fc *R/CIGofVAR1.r
 dd8ef6cd721958f1326c114c116b39ae *R/RcppExports.R
 8d4c5ebc6e8e6dc3315471414aa73058 *R/array2longitudinal.r
@@ -21,12 +21,12 @@ b304691f2a9057536fbbbd866999548b *R/plotVAR1data.r
 19f0a0fe82d8a99917a0316355a70551 *R/privateFunctions.r
 45585d76c9875b69ef60fe09864da5c4 *R/ridgePathVAR1.r
 1eeb4ac868fcd80709ed3064341e6a43 *R/ridgePchordal.r
-5f3a0dd118824080ccfcf756bafb0ead *R/ridgeVAR1.r
+222858d0a81974a9189ec8a9cf7571e7 *R/ridgeVAR1.r
 525a7163f55c36c38bf98b6587be18a7 *R/sparsifyVAR1.r
 97827e4c25fcff47c45a651d5193e50e *R/support4ridgeP.r
 bdc8ec136a7536a1d18280abf86c71c5 *data/hpvP53.rda
 36001f36086006f0befa8393873e4a42 *inst/CITATION
-60acde2049c474f3af9d365938e14ef6 *inst/NEWS.Rd
+6a50d16fa4b8da03a4ce3e9b2da9e5f1 *inst/NEWS.Rd
 c31f5966eef72ce265598cfdb58a63aa *man/CIGofVAR1.Rd
 1d91ca8b92875397b1f14b5f9c1395af *man/array2longitudinal.Rd
 af86fdd115e9efc7c9ad91d8dbb3420a *man/centerVAR1data.Rd
@@ -54,4 +54,4 @@ ab0f69d2af6aa25c872152bee9b77985 *man/support4ridgeP.Rd
 de7a1b63ef8dff833ab1530e592796a6 *src/Makevars
 de7a1b63ef8dff833ab1530e592796a6 *src/Makevars.win
 a02e22d0c0627f0e342d57faad345af8 *src/RcppExports.cpp
-8760beaa1fe4d3372bc9acf379ac786d *src/ragt2ridges.cpp
+030a6b2a9726cf68ec1edb3ac0b155b8 *src/ragt2ridges.cpp

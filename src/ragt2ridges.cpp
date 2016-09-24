@@ -1030,7 +1030,7 @@ arma::mat armaVAR1_Ahat_ridgeML_forR(arma::mat P, arma::mat COVY, const arma::ma
 }
 
 // [[Rcpp::export(".armaVAR1_Ahat_ridgeSS")]]
-arma::mat armaVAR1_Ahat_ridgeSS_forR(arma::mat COVY, arma::mat VARY, const double & lambdaA, arma::mat & targetA){
+arma::mat armaVAR1_Ahat_ridgeSS_forR(arma::mat VARY, arma::mat COVY, const double & lambdaA, arma::mat & targetA){
 	// see armaVARX1_Ahat_ridgeSS
 	return armaVAR1_Ahat_ridgeSS(VARY, COVY, lambdaA, targetA);
 }

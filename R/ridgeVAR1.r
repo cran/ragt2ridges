@@ -117,11 +117,11 @@ ridgeVAR1 <- function(Y, lambdaA=0, lambdaP=0, targetA=matrix(0, dim(Y)[1], dim(
             
             # estimate A
             if (nrow(zerosA) == 0){
-                Ahat <- .armaVAR1_Ahat_ridgeSS(COVY, VARY, lambdaA, targetA)
+                Ahat <- .armaVAR1_Ahat_ridgeSS(VARY, COVY, lambdaA, targetA)
             } else {
                 # eigen-decomposition of VARY
                 VARY <- .armaEigenDecomp(VARY)            
-                Ahat <- .armaVAR1_Ahat_zeros(COVY, VARY$vectors, VARY$values, lambdaA, targetA, fitA, zerosA[,1], zerosA[,2], zerosAfit)
+                Ahat <- .armaVAR1_Ahat_zeros(diag(dim(Y)[1]), COVY, VARY$vectors, VARY$values, lambdaA, targetA, fitA, zerosA[,1], zerosA[,2], zerosAfit)
             }
 
             # calculate Se
