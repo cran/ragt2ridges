@@ -45,7 +45,7 @@ Miok, V., Wilting, S.M., Van Wieringen, W.N. (2016), "Ridge estimation of the VA
 
 Strimmer, K. (2008), ``fdrtool: a versatile R package for estimating local and tail area-based false discovery rates'', \emph{Bioinformatics} 24(12): 1461-1462.
 
-Van Wieringen, W.N., Peeters, C.F.W. (2016), ``Ridge Estimation of Inverse Covariance Matrices from High-Dimensional Data'', Computational Statistics and Data Analysis, 103, 284-303.
+Van Wieringen, W.N., Peeters, C.F.W. (2016), ``Ridge Estimation of Inverse Covariance Matrices from High-Dimensional Data'', \emph{Computational Statistics and Data Analysis}, 103, 284-303.
 }
 \author{
 Wessel N. van Wieringen <w.vanwieringen@vumc.nl>, Carel F.W. Peeters.

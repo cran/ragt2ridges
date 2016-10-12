@@ -2,6 +2,15 @@
 \title{News for Package \pkg{ragt2ridges}}
 \newcommand{\cpkg}{\href{http://cran.r-project.org/package=#1}{\pkg{#1}}}
 
+\section{Changes in version 0.2.3}{
+ \itemize{
+    \item Some re-organization of the src-directory. 
+    \item Rcpp-functions made exportable to other packages.     
+    \item Input checks of the \code{ridgeVAR1}-function contained inconsistencies: repaired.
+    \item Function \code{momentS} added: evaluates the moments of the sample (inverse) covariance matrix.    
+  }
+}
+
 \section{Changes in version 0.2.2}{
  \itemize{
     \item Change to the description and namespace-file. Importing now from methods, for compatibility with Bioconductor 3.4.

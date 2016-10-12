@@ -35,8 +35,6 @@ efficient=TRUE, nInit=100, minSuccDiff=0.001)
 \item{minSuccDiff}{ Minimum distance (positive \code{numeric} of length 1) between estimates of two successive iterations to be achieved. }
 }
 \details{
-If \code{diagP=TRUE}, no penalization to estimation of the covariance matrix is applied. Consequently, the arguments \code{lambdaP} and \code{targetP} are ignored (if supplied).
-
 The ridge ML estimator employs the following estimator of the variance of the VAR(1) process:
 \deqn{ \frac{1}{n (\mathcal{T} - 1)} \sum_{i=1}^{n} \sum_{t=2}^{\mathcal{T}} \mathbf{Y}_{\ast,i,t} \mathbf{Y}_{\ast,i,t}^{\mathrm{T}}. }
 This is used when \code{efficient=FALSE}. However, a more efficient estimator of this variance can be used
