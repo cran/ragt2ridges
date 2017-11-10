@@ -10,18 +10,18 @@ Function that calculates for each variate various statistics from a sparse VAR(1
 nodeStatsVAR1(sparseA, sparseP, as.table = FALSE)
 }
 \arguments{
-\item{sparseA}{ A \code{matrix} \eqn{\mathbf{A}} of auto-regression parameters, which is assumed to be sparse. }
+\item{sparseA}{ A \code{matrix} \eqn{\mathbf{A}} of autoregression parameters, which is assumed to be sparse. }
 \item{sparseP}{ Precision \code{matrix} \eqn{\mathbf{\Omega}_{\varepsilon}} the error, which is assumed to be sparse. } 
 \item{as.table}{ A \code{logical} indicating if the output should be in tabular format. }
 }
 \details{
 The function calculates various node statistics from a sparse VAR(1) model. The input matrices \eqn{\mathbf{A}} and \eqn{\mathbf{\Omega}_{\varepsilon}} 
-are assumed to be sparse regression coefficient and error precision matrices. From these matrices the global and contemporaneous conditional independence graphs are obtained (Dahlhaus, 2000; Dahlhaus, Eichler, 2003). 
+are assumed to be sparse autoregression coefficient and error precision matrices. From these matrices the global and contemporaneous conditional independence graphs are obtained (Dahlhaus, 2000; Dahlhaus, Eichler, 2003). 
 
 For both graph types the function calculates various measures of centrality: node degree, betweenness centrality, closeness centrality, and eigenvalue
 centrality. It also calculates the number of positive and the number of negative edges for each node. For more information on network measures, consult, e.g., Newman (2010).
 
-In addition, for each variate the mutual information (with all other variates) (Miok et al., 2016), mean impulse response (Hamilton, 1994; Lutkepohl 2005), the (error) variance, and the partial error variance are presented. 
+In addition, for each variate the mutual information (with all other variates) (Miok et al., 2017), mean impulse response (Hamilton, 1994; Lutkepohl 2005), the (error) variance, and the partial error variance are presented. 
 }
 \value{
 An object of class \code{list} (when \code{as.table = FALSE}) with slots:
@@ -46,8 +46,8 @@ An object of class \code{list} (when \code{as.table = FALSE}) with slots:
 \item{eigenCentralityPy}{ A \code{numeric} vector representing the eigen centrality for each node in the global Markov graph. }
 \item{mutualInfo_Tplus1}{ A \code{numeric} vector with for each node its mutual information with all other nodes at the next (t+1) time point. }
 \item{mutualInfo_Tplus2}{ A \code{numeric} vector with for each node its mutual information with all other nodes at the (t+2)-th time point. }
-\item{impulseResponse_Tplus1}{ A \code{numeric} vector with for each node its  mean absolute impulse response on all other nodes at the next (t+1) time point. }
-\item{impulseResponse_Tplus2}{ A \code{numeric} vector with for each node its  mean absolute impulse response on all other nodes at the (t+2)-th time point. }
+\item{itemResponse_Tplus1}{ A \code{numeric} vector with for each node its  mean absolute impulse response on all other nodes at the next (t+1) time point. }
+\item{itemResponse_Tplus2}{ A \code{numeric} vector with for each node its  mean absolute impulse response on all other nodes at the (t+2)-th time point. }
 When \code{as.table = TRUE} the list items above are represented in tabular form as an object of 
 class \code{matrix}.
 
@@ -64,7 +64,7 @@ Lutkepohl, H. (2005), New Introduction to Multiple Time Series Analysis. Springe
 
 Newman, M.E.J. (2010). "Networks: an introduction", Oxford University Press.
 
-Miok, V., Wilting, S.M., Van Wieringen, W.N. (2017), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", \emph{Biometrical Journal}, 59(1), 172-191.
+Miok, V., Wilting, S.M., Van Wieringen, W.N. (2017), "Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data", \emph{Biometrical Journal}, 59(1), 172-191. 
 }
 \author{
 Wessel N. van Wieringen <w.vanwieringen@vumc.nl>, Carel F.W. Peeters.
@@ -74,9 +74,13 @@ Wessel N. van Wieringen <w.vanwieringen@vumc.nl>, Carel F.W. Peeters.
 }
 \examples{
 # specify VAR(1) model parameters
-A <- matrix(c(-0.1, -0.3, 0, 0.5, 0, 0, 0, 0, -0.4), byrow=TRUE, ncol=3)
-P <- matrix(c(1, 0.5, 0, 0.5, 1, 0, 0, 0, 1), byrow=TRUE, ncol=3)
+A <- matrix(c(-0.1, -0.3,    0, 
+               0.5,    0,    0, 
+                 0,    0, -0.4), byrow=TRUE, ncol=3)
+P <- matrix(c(   1,  0.5,    0, 
+               0.5,    1,    0, 
+                 0,    0,    1), byrow=TRUE, ncol=3)
 
 # adjacency matrix of (global) conditional independencies.
-\dontrun{nodeStatsVAR1(A, P)}
+# nodeStatsVAR1(A, P)
 }
