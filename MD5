@@ -1,5 +1,5 @@
-14516feb183244b9f22f9bd7312ef2a4 *DESCRIPTION
-3fcfc08e12a7413f39e894eb306d1c72 *NAMESPACE
+936609cef82f40b90d357d2e53d19cb2 *DESCRIPTION
+67667c5b32251d6ac6f0db5fbbca453d *NAMESPACE
 2f91accc31caf116d19f7b049b538598 *R/CIGofVAR1.r
 ed7d03dbc8e771ae202f84a228528f34 *R/CIGofVAR2.r
 19f44abb343fcd1d1c09286d9b768d45 *R/RcppExports.R
@@ -9,7 +9,7 @@ ed7d03dbc8e771ae202f84a228528f34 *R/CIGofVAR2.r
 60affd6558d1773f4c644ce0999bc6c3 *R/dataVAR1.r
 57aec17ea583ed2372765fcab5dfb383 *R/dataVAR2.r
 2c2c154f81941945e2be66854115889e *R/dataVARX1.r
-3e3ee5ad6f1b54213f603feefd8b1f8e *R/evaluateVAR1fit.r
+408d511936c2c2795715e1a362b190fb *R/evaluateVAR1fit.r
 0bcee4e4f1560604fbc568b546ce4df0 *R/graphVAR1.r
 222bb150466cf084c1b98b65ee7d9a25 *R/graphVAR2.r
 0e97a69ed4e76b1d2cc963b580f3be18 *R/graphVARX1.r
@@ -26,6 +26,7 @@ b91b8d1ef10472d2d1b48d035e0f67b9 *R/loglikLOOCVVAR2.r
 fcdbd791f407352a3531baa0f3e13ae8 *R/loglikLOOCVcontourVARX1.r
 40c3c31a0f80f3e06b14b3e49d9064a8 *R/loglikVAR1.r
 d799af5d72e09985ac95de328fd5e4fa *R/longitudinal2array.r
+86f298eaea326d5109697b4bfd110ade *R/motifStatsVAR1.r
 a0a7c58bd99b6098a05adc439a950346 *R/mutualInfoVAR1.r
 81612f7f846cac618fb6541f50da41f6 *R/mutualInfoVAR2.r
 97f5dbfba660c32b7279bb83089d8f13 *R/nodeStatsVAR1.r
@@ -36,6 +37,7 @@ b3043e50947ecad495768a4d6f18baa2 *R/optPenaltyVAR1fused.r
 c3db7298b05c4958ec994c145e88578f *R/optPenaltyVARX1.r
 d997d2ea3e368eb5e7e5ce350445bd5a *R/plotVAR1data.r
 5b52fc3f9c704de8f13ca4fd7ad92a58 *R/privateFunctions.r
+36e8b16383ee0c1c76427a53ac60457a *R/pruneMotifStats.r
 cf25fc54b3c2d194159519129a9ed656 *R/ridgePathVAR1.r
 b8157bb32d9617a366212021cf621cc7 *R/ridgeVAR1.r
 21af53b45cb41b0183772ed1e310ebbd *R/ridgeVAR1fused.r
@@ -46,7 +48,7 @@ fb48f61620293322f3b734089161bcfd *R/ridgeVAR2.r
 8f984ad0637cf33e615d7e51ebc54d48 *R/sparsifyVARX1.r
 feb022797d413a9339c6b8f9da586304 *data/hpvP53.rda
 380cd65bd985363976804229e16d9ceb *inst/CITATION
-31c7531ed21f79f4a5c10712814385d2 *inst/NEWS.Rd
+3bc87140d733042291e0fb2cfef55f2e *inst/NEWS.Rd
 e41de4653976d1cfdcf0b547d96a5267 *inst/include/ragt2ridges.h
 366f0963137f2239def7982ed8c04dcb *inst/include/ragt2ridges_RcppExports.h
 fad13a5f680e912c1020540bcb3aee4b *man/CIGofVAR1.Rd
@@ -75,6 +77,7 @@ f4d937ed3d1ad92f5e192bf6ebd6bf6e *man/loglikLOOCVcontourVAR2.Rd
 441e32c2f68f6dc21c328e60c985203c *man/loglikLOOCVcontourVARX1.Rd
 202534cbd1093d5ec0b71678d2988c21 *man/loglikVAR1.Rd
 cd65ebae449a5d533ca9124918a49ddf *man/longitudinal2array.Rd
+d7e0e103776da0a9a1313f29f84999ca *man/motifStatsVAR1.Rd
 29b76c6b6884fbef6df6b689a70e5386 *man/mutualInfoVAR1.Rd
 29d0855ec9f44899fe9d22a299795326 *man/mutualInfoVAR2.Rd
 8f759056b381dba0d943188a98db43b0 *man/nodeStatsVAR1.Rd
@@ -84,7 +87,8 @@ a059666da3c97f7a3605f45a4a900cec *man/optPenaltyVAR1.Rd
 30a82f1caad78e467d19e10f9f728f99 *man/optPenaltyVAR2.Rd
 a17b582d35375cb4e540a2a76c788f33 *man/optPenaltyVARX1.Rd
 6fbf238d3f4fb09b094d8dbbdf16be20 *man/plotVAR1data.Rd
-69c95cd7c211db285a13223f40330aea *man/ragt2ridges-package.Rd
+a87b170001001ecdaa5f72a122a79866 *man/pruneMotifStats.Rd
+60a1052634870a7fcf1c13a33e999a2f *man/ragt2ridges-package.Rd
 8a7f68651ac235723c40867268f0b564 *man/ridgePathVAR1.Rd
 e7d41e179318dd8f482531c9364ce0e6 *man/ridgeVAR1.Rd
 56747929efacb455cbf839464ae910be *man/ridgeVAR1fused.Rd
