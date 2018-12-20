@@ -17,7 +17,7 @@ namespace ragt2ridges {
             require("ragt2ridges", Rcpp::Named("quietly") = true);
             typedef int(*Ptr_validate)(const char*);
             static Ptr_validate p_validate = (Ptr_validate)
-                R_GetCCallable("ragt2ridges", "ragt2ridges_RcppExport_validate");
+                R_GetCCallable("ragt2ridges", "_ragt2ridges_RcppExport_validate");
             if (!p_validate(sig)) {
                 throw Rcpp::function_not_exported(
                     "C++ function with signature '" + std::string(sig) + "' not found in ragt2ridges");
@@ -30,17 +30,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_ridgeML p__armaVAR1_ridgeML = NULL;
         if (p__armaVAR1_ridgeML == NULL) {
             validateSignature("Rcpp::List(*_armaVAR1_ridgeML)(Rcpp::NumericVector&,const double,const double,arma::mat&,arma::mat&,std::string,std::string,arma::mat&,bool,bool,const int,const double)");
-            p__armaVAR1_ridgeML = (Ptr__armaVAR1_ridgeML)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_ridgeML");
+            p__armaVAR1_ridgeML = (Ptr__armaVAR1_ridgeML)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_ridgeML");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_ridgeML(Rcpp::wrap(Yraw), Rcpp::wrap(lambdaA), Rcpp::wrap(lambdaP), Rcpp::wrap(targetA), Rcpp::wrap(targetP), Rcpp::wrap(targetPtype), Rcpp::wrap(fitA), Rcpp::wrap(unbalanced), Rcpp::wrap(diagP), Rcpp::wrap(efficient), Rcpp::wrap(nInit), Rcpp::wrap(minSuccDiff));
+            rcpp_result_gen = p__armaVAR1_ridgeML(Shield<SEXP>(Rcpp::wrap(Yraw)), Shield<SEXP>(Rcpp::wrap(lambdaA)), Shield<SEXP>(Rcpp::wrap(lambdaP)), Shield<SEXP>(Rcpp::wrap(targetA)), Shield<SEXP>(Rcpp::wrap(targetP)), Shield<SEXP>(Rcpp::wrap(targetPtype)), Shield<SEXP>(Rcpp::wrap(fitA)), Shield<SEXP>(Rcpp::wrap(unbalanced)), Shield<SEXP>(Rcpp::wrap(diagP)), Shield<SEXP>(Rcpp::wrap(efficient)), Shield<SEXP>(Rcpp::wrap(nInit)), Shield<SEXP>(Rcpp::wrap(minSuccDiff)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<Rcpp::List >(rcpp_result_gen);
     }
 
@@ -49,17 +49,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_ridgeML_zerosA p__armaVAR1_ridgeML_zerosA = NULL;
         if (p__armaVAR1_ridgeML_zerosA == NULL) {
             validateSignature("Rcpp::List(*_armaVAR1_ridgeML_zerosA)(Rcpp::NumericVector&,const double,const double,arma::mat&,arma::mat&,std::string,std::string,arma::mat,bool,bool,const int,const double,const arma::uvec&,const arma::uvec&,std::string)");
-            p__armaVAR1_ridgeML_zerosA = (Ptr__armaVAR1_ridgeML_zerosA)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_ridgeML_zerosA");
+            p__armaVAR1_ridgeML_zerosA = (Ptr__armaVAR1_ridgeML_zerosA)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_ridgeML_zerosA");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_ridgeML_zerosA(Rcpp::wrap(Yraw), Rcpp::wrap(lambdaA), Rcpp::wrap(lambdaP), Rcpp::wrap(targetA), Rcpp::wrap(targetP), Rcpp::wrap(targetPtype), Rcpp::wrap(fitA), Rcpp::wrap(unbalanced), Rcpp::wrap(diagP), Rcpp::wrap(efficient), Rcpp::wrap(nInit), Rcpp::wrap(minSuccDiff), Rcpp::wrap(zerosR), Rcpp::wrap(zerosC), Rcpp::wrap(zerosAfit));
+            rcpp_result_gen = p__armaVAR1_ridgeML_zerosA(Shield<SEXP>(Rcpp::wrap(Yraw)), Shield<SEXP>(Rcpp::wrap(lambdaA)), Shield<SEXP>(Rcpp::wrap(lambdaP)), Shield<SEXP>(Rcpp::wrap(targetA)), Shield<SEXP>(Rcpp::wrap(targetP)), Shield<SEXP>(Rcpp::wrap(targetPtype)), Shield<SEXP>(Rcpp::wrap(fitA)), Shield<SEXP>(Rcpp::wrap(unbalanced)), Shield<SEXP>(Rcpp::wrap(diagP)), Shield<SEXP>(Rcpp::wrap(efficient)), Shield<SEXP>(Rcpp::wrap(nInit)), Shield<SEXP>(Rcpp::wrap(minSuccDiff)), Shield<SEXP>(Rcpp::wrap(zerosR)), Shield<SEXP>(Rcpp::wrap(zerosC)), Shield<SEXP>(Rcpp::wrap(zerosAfit)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<Rcpp::List >(rcpp_result_gen);
     }
 
@@ -68,17 +68,17 @@ namespace ragt2ridges {
         static Ptr__armaEigenDecomp_blockDiagOnly p__armaEigenDecomp_blockDiagOnly = NULL;
         if (p__armaEigenDecomp_blockDiagOnly == NULL) {
             validateSignature("Rcpp::List(*_armaEigenDecomp_blockDiagOnly)(const arma::mat,const arma::ivec)");
-            p__armaEigenDecomp_blockDiagOnly = (Ptr__armaEigenDecomp_blockDiagOnly)R_GetCCallable("ragt2ridges", "ragt2ridges__armaEigenDecomp_blockDiagOnly");
+            p__armaEigenDecomp_blockDiagOnly = (Ptr__armaEigenDecomp_blockDiagOnly)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaEigenDecomp_blockDiagOnly");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaEigenDecomp_blockDiagOnly(Rcpp::wrap(symMat), Rcpp::wrap(blockDims));
+            rcpp_result_gen = p__armaEigenDecomp_blockDiagOnly(Shield<SEXP>(Rcpp::wrap(symMat)), Shield<SEXP>(Rcpp::wrap(blockDims)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<Rcpp::List >(rcpp_result_gen);
     }
 
@@ -87,17 +87,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_Shat_ML p__armaVAR1_Shat_ML = NULL;
         if (p__armaVAR1_Shat_ML == NULL) {
             validateSignature("arma::mat(*_armaVAR1_Shat_ML)(Rcpp::NumericVector&,const arma::mat&)");
-            p__armaVAR1_Shat_ML = (Ptr__armaVAR1_Shat_ML)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_Shat_ML");
+            p__armaVAR1_Shat_ML = (Ptr__armaVAR1_Shat_ML)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_Shat_ML");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_Shat_ML(Rcpp::wrap(Yraw), Rcpp::wrap(A));
+            rcpp_result_gen = p__armaVAR1_Shat_ML(Shield<SEXP>(Rcpp::wrap(Yraw)), Shield<SEXP>(Rcpp::wrap(A)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<arma::mat >(rcpp_result_gen);
     }
 
@@ -106,17 +106,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_COVYhat p__armaVAR1_COVYhat = NULL;
         if (p__armaVAR1_COVYhat == NULL) {
             validateSignature("arma::mat(*_armaVAR1_COVYhat)(Rcpp::NumericVector&)");
-            p__armaVAR1_COVYhat = (Ptr__armaVAR1_COVYhat)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_COVYhat");
+            p__armaVAR1_COVYhat = (Ptr__armaVAR1_COVYhat)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_COVYhat");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_COVYhat(Rcpp::wrap(Yraw));
+            rcpp_result_gen = p__armaVAR1_COVYhat(Shield<SEXP>(Rcpp::wrap(Yraw)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<arma::mat >(rcpp_result_gen);
     }
 
@@ -125,17 +125,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_VARYhat p__armaVAR1_VARYhat = NULL;
         if (p__armaVAR1_VARYhat == NULL) {
             validateSignature("arma::mat(*_armaVAR1_VARYhat)(Rcpp::NumericVector&,bool,arma::mat)");
-            p__armaVAR1_VARYhat = (Ptr__armaVAR1_VARYhat)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_VARYhat");
+            p__armaVAR1_VARYhat = (Ptr__armaVAR1_VARYhat)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_VARYhat");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_VARYhat(Rcpp::wrap(Yraw), Rcpp::wrap(efficient), Rcpp::wrap(unbalanced));
+            rcpp_result_gen = p__armaVAR1_VARYhat(Shield<SEXP>(Rcpp::wrap(Yraw)), Shield<SEXP>(Rcpp::wrap(efficient)), Shield<SEXP>(Rcpp::wrap(unbalanced)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<arma::mat >(rcpp_result_gen);
     }
 
@@ -144,17 +144,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_Ahat_zeros p__armaVAR1_Ahat_zeros = NULL;
         if (p__armaVAR1_Ahat_zeros == NULL) {
             validateSignature("arma::mat(*_armaVAR1_Ahat_zeros)(const arma::mat&,arma::mat&,const arma::mat&,const arma::vec,const double,const arma::mat&,std::string,const arma::uvec&,const arma::uvec&,std::string)");
-            p__armaVAR1_Ahat_zeros = (Ptr__armaVAR1_Ahat_zeros)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_Ahat_zeros");
+            p__armaVAR1_Ahat_zeros = (Ptr__armaVAR1_Ahat_zeros)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_Ahat_zeros");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_Ahat_zeros(Rcpp::wrap(P), Rcpp::wrap(COVY), Rcpp::wrap(eigvecVARY), Rcpp::wrap(eigvalVARY), Rcpp::wrap(lambdaA), Rcpp::wrap(targetA), Rcpp::wrap(fitA), Rcpp::wrap(zerosR), Rcpp::wrap(zerosC), Rcpp::wrap(zerosAfit));
+            rcpp_result_gen = p__armaVAR1_Ahat_zeros(Shield<SEXP>(Rcpp::wrap(P)), Shield<SEXP>(Rcpp::wrap(COVY)), Shield<SEXP>(Rcpp::wrap(eigvecVARY)), Shield<SEXP>(Rcpp::wrap(eigvalVARY)), Shield<SEXP>(Rcpp::wrap(lambdaA)), Shield<SEXP>(Rcpp::wrap(targetA)), Shield<SEXP>(Rcpp::wrap(fitA)), Shield<SEXP>(Rcpp::wrap(zerosR)), Shield<SEXP>(Rcpp::wrap(zerosC)), Shield<SEXP>(Rcpp::wrap(zerosAfit)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<arma::mat >(rcpp_result_gen);
     }
 
@@ -163,17 +163,17 @@ namespace ragt2ridges {
         static Ptr__armaP_defaultTarget p__armaP_defaultTarget = NULL;
         if (p__armaP_defaultTarget == NULL) {
             validateSignature("arma::mat(*_armaP_defaultTarget)(arma::mat,std::string,const double,double const)");
-            p__armaP_defaultTarget = (Ptr__armaP_defaultTarget)R_GetCCallable("ragt2ridges", "ragt2ridges__armaP_defaultTarget");
+            p__armaP_defaultTarget = (Ptr__armaP_defaultTarget)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaP_defaultTarget");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaP_defaultTarget(Rcpp::wrap(S), Rcpp::wrap(targetType), Rcpp::wrap(fraction), Rcpp::wrap(multiplier));
+            rcpp_result_gen = p__armaP_defaultTarget(Shield<SEXP>(Rcpp::wrap(S)), Shield<SEXP>(Rcpp::wrap(targetType)), Shield<SEXP>(Rcpp::wrap(fraction)), Shield<SEXP>(Rcpp::wrap(multiplier)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<arma::mat >(rcpp_result_gen);
     }
 
@@ -182,17 +182,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR_array2cube_withMissing p__armaVAR_array2cube_withMissing = NULL;
         if (p__armaVAR_array2cube_withMissing == NULL) {
             validateSignature("arma::cube(*_armaVAR_array2cube_withMissing)(Rcpp::NumericVector&,const arma::uvec,const arma::uvec)");
-            p__armaVAR_array2cube_withMissing = (Ptr__armaVAR_array2cube_withMissing)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR_array2cube_withMissing");
+            p__armaVAR_array2cube_withMissing = (Ptr__armaVAR_array2cube_withMissing)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR_array2cube_withMissing");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR_array2cube_withMissing(Rcpp::wrap(Yraw), Rcpp::wrap(unbalancedR), Rcpp::wrap(unbalancedC));
+            rcpp_result_gen = p__armaVAR_array2cube_withMissing(Shield<SEXP>(Rcpp::wrap(Yraw)), Shield<SEXP>(Rcpp::wrap(unbalancedR)), Shield<SEXP>(Rcpp::wrap(unbalancedC)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<arma::cube >(rcpp_result_gen);
     }
 
@@ -201,17 +201,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR_array2cube_withoutMissing p__armaVAR_array2cube_withoutMissing = NULL;
         if (p__armaVAR_array2cube_withoutMissing == NULL) {
             validateSignature("arma::cube(*_armaVAR_array2cube_withoutMissing)(Rcpp::NumericVector&)");
-            p__armaVAR_array2cube_withoutMissing = (Ptr__armaVAR_array2cube_withoutMissing)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR_array2cube_withoutMissing");
+            p__armaVAR_array2cube_withoutMissing = (Ptr__armaVAR_array2cube_withoutMissing)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR_array2cube_withoutMissing");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR_array2cube_withoutMissing(Rcpp::wrap(Yraw));
+            rcpp_result_gen = p__armaVAR_array2cube_withoutMissing(Shield<SEXP>(Rcpp::wrap(Yraw)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<arma::cube >(rcpp_result_gen);
     }
 
@@ -220,17 +220,17 @@ namespace ragt2ridges {
         static Ptr__armaEigenDecomp p__armaEigenDecomp = NULL;
         if (p__armaEigenDecomp == NULL) {
             validateSignature("Rcpp::List(*_armaEigenDecomp)(const arma::mat)");
-            p__armaEigenDecomp = (Ptr__armaEigenDecomp)R_GetCCallable("ragt2ridges", "ragt2ridges__armaEigenDecomp");
+            p__armaEigenDecomp = (Ptr__armaEigenDecomp)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaEigenDecomp");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaEigenDecomp(Rcpp::wrap(symMat));
+            rcpp_result_gen = p__armaEigenDecomp(Shield<SEXP>(Rcpp::wrap(symMat)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<Rcpp::List >(rcpp_result_gen);
     }
 
@@ -239,17 +239,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_convergenceEvaluation p__armaVAR1_convergenceEvaluation = NULL;
         if (p__armaVAR1_convergenceEvaluation == NULL) {
             validateSignature("double(*_armaVAR1_convergenceEvaluation)(arma::mat&,arma::mat&,arma::mat&,arma::mat&)");
-            p__armaVAR1_convergenceEvaluation = (Ptr__armaVAR1_convergenceEvaluation)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_convergenceEvaluation");
+            p__armaVAR1_convergenceEvaluation = (Ptr__armaVAR1_convergenceEvaluation)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_convergenceEvaluation");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_convergenceEvaluation(Rcpp::wrap(Ahat), Rcpp::wrap(Aprev), Rcpp::wrap(Phat), Rcpp::wrap(Pprev));
+            rcpp_result_gen = p__armaVAR1_convergenceEvaluation(Shield<SEXP>(Rcpp::wrap(Ahat)), Shield<SEXP>(Rcpp::wrap(Aprev)), Shield<SEXP>(Rcpp::wrap(Phat)), Shield<SEXP>(Rcpp::wrap(Pprev)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<double >(rcpp_result_gen);
     }
 
@@ -258,17 +258,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_Ahat_ridgeML p__armaVAR1_Ahat_ridgeML = NULL;
         if (p__armaVAR1_Ahat_ridgeML == NULL) {
             validateSignature("arma::mat(*_armaVAR1_Ahat_ridgeML)(arma::mat&,arma::mat&,const arma::mat&,const arma::colvec,const double,arma::mat&)");
-            p__armaVAR1_Ahat_ridgeML = (Ptr__armaVAR1_Ahat_ridgeML)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_Ahat_ridgeML");
+            p__armaVAR1_Ahat_ridgeML = (Ptr__armaVAR1_Ahat_ridgeML)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_Ahat_ridgeML");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_Ahat_ridgeML(Rcpp::wrap(P), Rcpp::wrap(COVY), Rcpp::wrap(eigvecVARY), Rcpp::wrap(eigvalVARY), Rcpp::wrap(lambdaA), Rcpp::wrap(targetA));
+            rcpp_result_gen = p__armaVAR1_Ahat_ridgeML(Shield<SEXP>(Rcpp::wrap(P)), Shield<SEXP>(Rcpp::wrap(COVY)), Shield<SEXP>(Rcpp::wrap(eigvecVARY)), Shield<SEXP>(Rcpp::wrap(eigvalVARY)), Shield<SEXP>(Rcpp::wrap(lambdaA)), Shield<SEXP>(Rcpp::wrap(targetA)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<arma::mat >(rcpp_result_gen);
     }
 
@@ -277,17 +277,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_Ahat_ridgeSS p__armaVAR1_Ahat_ridgeSS = NULL;
         if (p__armaVAR1_Ahat_ridgeSS == NULL) {
             validateSignature("arma::mat(*_armaVAR1_Ahat_ridgeSS)(arma::mat&,arma::mat&,const double&,arma::mat&)");
-            p__armaVAR1_Ahat_ridgeSS = (Ptr__armaVAR1_Ahat_ridgeSS)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_Ahat_ridgeSS");
+            p__armaVAR1_Ahat_ridgeSS = (Ptr__armaVAR1_Ahat_ridgeSS)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_Ahat_ridgeSS");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_Ahat_ridgeSS(Rcpp::wrap(VARY), Rcpp::wrap(COVY), Rcpp::wrap(lambdaA), Rcpp::wrap(targetA));
+            rcpp_result_gen = p__armaVAR1_Ahat_ridgeSS(Shield<SEXP>(Rcpp::wrap(VARY)), Shield<SEXP>(Rcpp::wrap(COVY)), Shield<SEXP>(Rcpp::wrap(lambdaA)), Shield<SEXP>(Rcpp::wrap(targetA)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<arma::mat >(rcpp_result_gen);
     }
 
@@ -296,17 +296,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_loglik_LOOCVinternal p__armaVAR1_loglik_LOOCVinternal = NULL;
         if (p__armaVAR1_loglik_LOOCVinternal == NULL) {
             validateSignature("double(*_armaVAR1_loglik_LOOCVinternal)(arma::vec,arma::vec,arma::mat&,arma::mat&)");
-            p__armaVAR1_loglik_LOOCVinternal = (Ptr__armaVAR1_loglik_LOOCVinternal)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_loglik_LOOCVinternal");
+            p__armaVAR1_loglik_LOOCVinternal = (Ptr__armaVAR1_loglik_LOOCVinternal)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_loglik_LOOCVinternal");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_loglik_LOOCVinternal(Rcpp::wrap(Yt1), Rcpp::wrap(Yt0), Rcpp::wrap(A), Rcpp::wrap(P));
+            rcpp_result_gen = p__armaVAR1_loglik_LOOCVinternal(Shield<SEXP>(Rcpp::wrap(Yt1)), Shield<SEXP>(Rcpp::wrap(Yt0)), Shield<SEXP>(Rcpp::wrap(A)), Shield<SEXP>(Rcpp::wrap(P)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<double >(rcpp_result_gen);
     }
 
@@ -315,17 +315,17 @@ namespace ragt2ridges {
         static Ptr__armaVAR1_loglik p__armaVAR1_loglik = NULL;
         if (p__armaVAR1_loglik == NULL) {
             validateSignature("double(*_armaVAR1_loglik)(Rcpp::NumericVector&,arma::mat&,arma::mat&)");
-            p__armaVAR1_loglik = (Ptr__armaVAR1_loglik)R_GetCCallable("ragt2ridges", "ragt2ridges__armaVAR1_loglik");
+            p__armaVAR1_loglik = (Ptr__armaVAR1_loglik)R_GetCCallable("ragt2ridges", "_ragt2ridges__armaVAR1_loglik");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p__armaVAR1_loglik(Rcpp::wrap(Yraw), Rcpp::wrap(A), Rcpp::wrap(P));
+            rcpp_result_gen = p__armaVAR1_loglik(Shield<SEXP>(Rcpp::wrap(Yraw)), Shield<SEXP>(Rcpp::wrap(A)), Shield<SEXP>(Rcpp::wrap(P)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
         if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<double >(rcpp_result_gen);
     }
 
