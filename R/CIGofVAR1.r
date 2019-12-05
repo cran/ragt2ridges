@@ -34,13 +34,13 @@ CIGofVAR1 <- function(sparseA,
 	#######################################################################
 
 	# input checks    
-  	if (as.character(class(sparseA)) != "matrix"){ 
+  	if (!is(sparseA, "matrix")){ 
 		stop("Input (sparseA) is of wrong class.") 
 	}
 	if (nrow(sparseA) != ncol(sparseA)){ 
 		stop("Matrix sparseA is not square.") 
 	}
-	if (as.character(class(sparseP)) != "matrix"){ 
+	if (!is(sparseP, "matrix")){ 
 		stop("Input (sparseP) is of wrong class.") 
 	}
 	if (nrow(sparseP) != ncol(sparseP)){ 
@@ -49,7 +49,7 @@ CIGofVAR1 <- function(sparseA,
 	if (nrow(sparseA) != ncol(sparseP)){ 
 		stop("Matrix sparseA and sparseP are of equal dimensions.") 
 	}
-  	if (as.character(class(type)) != "character"){ 
+  	if (!is(type, "character")){ 
 		stop("Input (type) is of wrong class.") 
 	}
   	if (!(type %in% c("global", "contemp"))){ 

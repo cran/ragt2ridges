@@ -40,7 +40,7 @@ graphVAR2(sparseA1, sparseA2, sparseP, type="TSCG", side="right",
 \item{...}{ Other arguments to be passed on to \code{plot.igraph}. }
 }
 \references{
-Miok, V., Wilting, S.M., Van Wieringen, W.N. (2018), ``Ridge estimation of network models from time-course omics data'', \emph{Biometrical Journal}, <DOI:10.1002/bimj.201700195>. 
+Miok, V., Wilting, S.M., Van Wieringen, W.N. (2019), ``Ridge estimation of network models from time-course omics data'', \emph{Biometrical Journal}, 61(2), 391-405.
 }
 \author{
 Wessel N. van Wieringen <w.vanwieringen@vumc.nl>

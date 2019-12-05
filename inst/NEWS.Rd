@@ -2,6 +2,13 @@
 \title{News for Package \pkg{ragt2ridges}}
 \newcommand{\cpkg}{\href{http://cran.r-project.org/package=#1}{\pkg{#1}}}
 
+\section{Changes in version 0.3.3}{
+ \itemize{
+    \item Modification of input checks to meet CRAN's best practice.  
+    \item Citations are updated.
+  }
+}
+
 \section{Changes in version 0.3.2}{
  \itemize{
     \item The packages \code{Biobase} and \code{CHGbase} are now suggested in the \code{DESCRIPTION}-file to avoid errors on CRAN. 

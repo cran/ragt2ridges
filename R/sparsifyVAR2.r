@@ -50,13 +50,13 @@ sparsifyVAR2 <- function(A1,
 	########################################################################
 
 	# input check
-	if (as.character(class(A1)) != "matrix"){ 
+	if (!is(A1, "matrix")){ 
 		stop("Input (A1) is of wrong class.") 
 	}
 	if (nrow(A1) != ncol(A1)){ 
 		stop("Matrix A1 is not square.") 
 	}	
-	if (as.character(class(A2)) != "matrix"){ 
+	if (!is(A2, "matrix")){ 
 		stop("Input (A2) is of wrong class.") 
 	}
 	if (nrow(A2) != ncol(A2)){ 
@@ -65,7 +65,7 @@ sparsifyVAR2 <- function(A1,
 	if (nrow(A1) != ncol(A2)){ 
 		stop("Dimensions of matrices A1 and A2 do not match.") 
 	}	
-	if (as.character(class(threshold)) != "character"){ 
+	if (!is(threshold, "character")){ 
 		stop("Input (threshold) is of wrong class.") 
 	}
 	if (missing(threshold)){ 
@@ -74,14 +74,14 @@ sparsifyVAR2 <- function(A1,
 	if (!(threshold %in% c("absValue", "localFDR", "top"))){ 
 		stop("Input (threshold) should be one of {'absValue', 'localFDR', 'top'}") 
 	}
-	if (as.character(class(verbose)) != "logical"){ 
+	if (!is(verbose, "logical")){ 
 		stop("Input (verbose) is of wrong class.") 
 	}
 
 	# top elements of A
 	if (threshold == "top"){
 		# extra input checks for this option
-		if (class(top) != "numeric"){ 
+		if (!is(top, "numeric")){ 
 			stop("Input (top) is of wrong class") 
 		} 
 		if (length(top) != 2){ 
@@ -106,7 +106,7 @@ sparsifyVAR2 <- function(A1,
 	# absolute value criterion
 	if (threshold == "absValue"){
 		# extra input checks for this option
-		if (class(absValueCut) != "numeric"){ 
+		if (!is(absValueCut, "numeric")){ 
 			stop("Input (absValueCut) is of wrong class") 
 		} 
 		if (length(absValueCut) != 2){ 
@@ -128,7 +128,7 @@ sparsifyVAR2 <- function(A1,
 	# local FDR values 
 	if (threshold=="localFDR"){
 		# extra input checks for this option
-		if (as.character(class(SigmaE)) != "matrix"){ 
+		if (!is(SigmaE, "matrix")){ 
 			stop("Input (SigmaE) is of wrong class.") 
 		}
 		if (!isSymmetric(SigmaE)){ 
@@ -140,7 +140,7 @@ sparsifyVAR2 <- function(A1,
 		if (nrow(A1) != nrow(SigmaE)){ 
 			stop("Dimensions covariance matrix and A1 do not match.") 
 		}
-		if (as.character(class(FDRcut)) != "numeric"){ 
+		if (!is(FDRcut, "numeric")){ 
 			stop("Input (FDRcut) is of wrong class.") 
 		}
 		if (length(FDRcut) != 2){ 
@@ -155,7 +155,7 @@ sparsifyVAR2 <- function(A1,
 		if (any(FDRcut >= 1)){ 
 			stop("Input (FDRcut) should be smaller than one.") 
 		}
-		if (as.character(class(statistics)) != "logical"){ 
+		if (!is(statistics, "logical")){ 
 			stop("Input (testStat) is of wrong class.") 
 		}
 	

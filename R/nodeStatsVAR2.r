@@ -113,7 +113,7 @@ nodeStatsVAR2 <- function(sparseA1,
 	if (!evaluateS(sparseP, verbose = FALSE)$posEigen){
 		stop("Input (sparseP) is expected to be positive definite")
 	}
-	if (class(as.table) != "logical"){
+	if (!is(as.table, "logical")){
 		stop("Input (as.table) is of wrong class")
 	} 
 	

@@ -21,13 +21,13 @@ impulseResponseVAR1 <- function(A,
 	########################################################################
 
 	# input checks
-	if (as.character(class(A)) != "matrix"){ 
+	if (!is(A, "matrix")){ 
 		stop("Input (A) is of wrong class.") 
 	}
 	if (nrow(A) != ncol(A)){ 
 		stop("Matrix A is not square.") 
 	}
-	if (as.character(class(T)) != "numeric"){ 
+	if (!is(T, "numeric")){ 
 		stop("Input (T) is of wrong class.") 
 	}
 	if (length(T) != 1){ 

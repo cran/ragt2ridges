@@ -49,19 +49,19 @@ ridgePathVAR1 <- function(Y,
 	################################################################
 
 	# input checks
-	if (class(verbose) != "logical"){ 
+	if (!is(verbose, "logical")){ 
 		stop("Input (verbose) is of wrong class") 
 	}
 	if (verbose){ 
 		cat("Perform input checks...", "\n")   
 	}
-	if (as.character(class(Y)) != "array"){ 
+	if (!is(Y, "array")){ 
 		stop("Input (Y) is of wrong class.") 
 	}
 	if (length(dim(Y)) != 3){ 
 		stop("Input (Y) is of wrong dimensions: either covariate, time or sample dimension is missing.") 
 	}
-	if (class(lambdaAgrid) != "numeric"){ 
+	if (!is(lambdaAgrid, "numeric")){ 
 		stop("Input (lambdaAmin) is of wrong class") 
 	}
 	if (length(lambdaAgrid) < 2){ 
@@ -70,7 +70,7 @@ ridgePathVAR1 <- function(Y,
 	if (any(lambdaAgrid <= 0)){ 
 		stop("all values of lambdaAgrid must be positive") 
 	}
-	if (class(lambdaPgrid) != "numeric"){ 
+	if (!is(lambdaPgrid, "numeric")){ 
 		stop("Input (lambdaAmin) is of wrong class") 
 	}
 	if (length(lambdaPgrid) < 2){ 
@@ -79,16 +79,16 @@ ridgePathVAR1 <- function(Y,
 	if (any(lambdaPgrid <= 0)){ 
 		stop("all values of lambdaAgrid must be positive") 
 	}
-	if (class(pathType) != "character"){ 
+	if (!is(pathType, "character")){ 
 		stop("Input (pathType) is of wrong class") 
 	}
 	if (length(intersect(pathType, c("A", "SigmaE"))) == 0){ 
 		stop("Input (pathType) is of wrongly specified") 
 	}
-	if (class(plotTypeSigmaE) != "character"){ 
+	if (!is(plotTypeSigmaE, "character")){ 
 		stop("Input (plotTypeSigmaE) is of wrong class") 
 	}
-	if (class(diag) != "logical"){ 
+	if (!is(diag, "logical")){ 
 		stop("Input (diag) is of wrong class") 
 	}
 	if (length(intersect(plotTypeSigmaE, c("pcor", "cor", "cov", "prec"))) == 0){ 

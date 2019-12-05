@@ -83,34 +83,34 @@ graphVAR1 <- function(sparseA,
 	#######################################################################
 
 	# input check
-	if (as.character(class(sparseA)) != "matrix"){ 
+	if (!is(sparseA, "matrix")){ 
 		stop("Input (sparseA) is of wrong class.") 
 	}
 	if (nrow(sparseA) != ncol(sparseA)){ 
 		stop("Matrix sparseA is not square.") 
 	}
-	if (as.character(class(sparseP)) != "matrix"){ 
+	if (!is(sparseP, "matrix")){ 
 		stop("Input (sparseP) is of wrong class.") 
 	}
 	if (nrow(sparseA) != ncol(sparseP)){ 
 		stop("Matrix sparseP is not square.") 
 	}
-	if (as.character(class(prune)) != "logical"){ 
+	if (!is(prune, "logical")){ 
 		stop("Input (prune) is of wrong class.") 
 	}
-	if (as.character(class(vertex.size)) != "numeric"){ 
+	if (!is(vertex.size, "numeric")){ 
 		stop("Input (vertex.size) is of wrong class.") 
 	}
-	if (as.character(class(vertex.color.T0)) != "character"){ 
+	if (!is(vertex.color.T0, "character")){ 
 		stop("Input (vertex.color.T0) is of wrong class.") 
 	}
-	if (as.character(class(vertex.color.T1)) != "character"){ 
+	if (!is(vertex.color.T1, "character")){ 
 		stop("Input (vertex.color.T1) is of wrong class.") 
 	}
-	if (as.character(class(vertex.label.color.T0)) != "character"){ 
+	if (!is(vertex.label.color.T0, "character")){ 
 		stop("Input (vertex.label.color.T0) is of wrong class.") 
 	}
-	if (as.character(class(vertex.label.color.T1)) != "character"){ 
+	if (!is(vertex.label.color.T1, "character")){ 
 		stop("Input (vertex.label.color.T1) is of wrong class.") 
 	}
 

@@ -30,8 +30,8 @@ The \code{(R)cpp}-code of \code{ragt2ridges} includes parts of the \code{Rcpp}-m
 \tabular{ll}{
 Package: \tab ragt2ridges\cr
 Type: \tab Package\cr
-Version: \tab 0.3.2\cr
-Date: \tab 2018-12-20\cr
+Version: \tab 0.3.3\cr
+Date: \tab 2019-12-05\cr
 License: \tab GPL (>= 2) \cr
 }
 }
@@ -41,7 +41,7 @@ Wessel N. van Wieringen <w.vanwieringen@vumc.ml>
 \references{
 Miok, V., Wilting, S.M., Van Wieringen, W.N. (2017), ``Ridge estimation of the VAR(1) model and its time series chain graph from multivariate time-course omics data'', \emph{Biometrical Journal}, 59(1), 172-191. 
 
-Miok, V., Wilting, S.M., Van Wieringen, W.N. (2018), ``Ridge estimation of network models from time-course omics data'', \emph{Biometrical Journal}, <DOI:10.1002/bimj.201700195>. 
+Miok, V., Wilting, S.M., Van Wieringen, W.N. (2019), ``Ridge estimation of network models from time-course omics data'', \emph{Biometrical Journal}, 61(2), 391-405.
 }
 \keyword{ package }
 \seealso{

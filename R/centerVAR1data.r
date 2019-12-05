@@ -19,7 +19,7 @@ centerVAR1data <- function(Y){
 	########################################################################
 
 	# input checks
-	if (as.character(class(Y)) != "array"){ 
+	if (!is(Y, "array")){ 
 		stop("Input (Y) is of wrong class.") 
 	}
 	if (length(dim(Y)) != 3){ 

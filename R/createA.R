@@ -38,7 +38,7 @@ createA <- function(p,
 	########################################################################
 
 	# iput checks
-	if (as.character(class(p)) != "numeric"){ 
+	if (!is(p, "numeric")){ 
 		stop("Input (p) is of wrong class.") 
 	}
 	if (length(p) != 1){ 
@@ -50,15 +50,15 @@ createA <- function(p,
 	if (p < 0){ 
 		stop("Input (p) is not a positive integer.") 
 	}
-	if (as.character(class(topology)) != "character"){ 
+	if (!is(topology, "character")){ 
 		stop("Input (topology) is of wrong class.") 
 	}
-	if (as.character(class(topology)) == "character"){ 
+	if (!is(topology, "character")){ 
 		if (!(topology %in% c("clique", "chain", "hub", "random"))){ 
 			stop("Input (topology) ill-specified.") 
 		} 
 	}
-	if (as.character(class(nonzeroA)) != "numeric"){ 
+	if (!is(nonzeroA, "numeric")){ 
 		stop("Input (nonzeroA) is of wrong class.") 
 	}
 	if (length(nonzeroA) != 1){ 
@@ -67,7 +67,7 @@ createA <- function(p,
 	if (is.na(nonzeroA)){ 
 		stop("Input (nonzeroA) is not a non-negative number.") 
 	}
-	if (as.character(class(nCliques)) != "numeric"){ 
+	if (!is(nCliques, "numeric")){ 
 		stop("Input (nCliques) is of wrong class.") 
 	}
 	if (length(nCliques) != 1){ 
@@ -82,7 +82,7 @@ createA <- function(p,
 	if (nCliques > p){ 
 		stop("Input (nCliques) is not smaller than (or equal to) p.") 
 	}
-	if (as.character(class(nHubs)) != "numeric"){ 
+	if (!is(nHubs, "numeric")){ 
 		stop("Input (nHubs) is of wrong class.") 
 	}
 	if (length(nHubs) != 1){ 
@@ -97,7 +97,7 @@ createA <- function(p,
 	if (nHubs > p){ 
 		stop("Input (nHubs) is not smaller than (or equal to) p.") 
 	}
-	if (as.character(class(nBands)) != "numeric"){ 
+	if (!is(nBands, "numeric")){ 
 		stop("Input (nBands) is of wrong class.") 
 	}
 	if (length(nBands) != 1){ 
@@ -112,7 +112,7 @@ createA <- function(p,
 	if (nBands > p){ 
 		stop("Input (nBands) is not smaller than (or equal to) p.") 
 	}
-	if (as.character(class(percZeros)) != "numeric"){ 
+	if (!is(percZeros, "numeric")){ 
 		stop("Input (percZeros) is of wrong class.") 
 	}
 	if (length(percZeros) != 1){ 
@@ -127,7 +127,7 @@ createA <- function(p,
 	if (percZeros >= 1){ 
 		stop("Input (percZeros) is not smaller than one.") 
 	}
-	if (as.character(class(stationary)) != "logical"){ 
+	if (!is(stationary, "logical")){ 
 		stop("Input (stationary) is of wrong class.") 
 	}
 

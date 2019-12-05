@@ -22,13 +22,13 @@ mutualInfoVAR1 <- function(A,
 	########################################################################
 
 	# input checks
-	if (as.character(class(A)) != "matrix"){ 
+	if (!is(A, "matrix")){ 
 		stop("Input (A) is of wrong class.") 
 	}
 	if (nrow(A) != ncol(A)){ 
 		stop("Matrix A is not square.") 
 	}
-	if (as.character(class(T)) != "numeric"){ 
+	if (!is(T, "numeric")){ 
 		stop("Input (Tmax) is of wrong class.") 
 	}
 	if (length(T) != 1){ 
@@ -40,7 +40,7 @@ mutualInfoVAR1 <- function(A,
 	if (T < 1){ 
 		stop("Input (T) should be an integer larger than one.") 
 	}
-	if (as.character(class(SigmaE)) != "matrix"){ 
+	if (!is(SigmaE, "matrix")){ 
 		stop("Input (SigmaE) is of wrong class.") 
 	}    
 	if (!isSymmetric(SigmaE)){ 

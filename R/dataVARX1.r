@@ -20,13 +20,13 @@ dataVARX1 <- function(X, A, B, SigmaE, lagX){
 	########################################################################
 
 	# input check
-	if (as.character(class(A)) != "matrix"){ 
+	if (!is(A, "matrix")){ 
 		stop("Input (A) is of wrong class.") 
 	}
-	if (as.character(class(B)) != "matrix"){ 
+	if (!is(B, "matrix")){ 
 		stop("Input (A) is of wrong class.") 
 	}
-	if (as.character(class(SigmaE)) != "matrix"){ 
+	if (!is(SigmaE, "matrix")){ 
 		stop("Input (SigmaE) is of wrong class.") 
 	}
 	if (!isSymmetric(SigmaE)){ 

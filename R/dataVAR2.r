@@ -21,13 +21,13 @@ dataVAR2 <- function(n, T, A1, A2, SigmaE, TburnIn=1000){
 	########################################################################
 
 	# input check
-	if (as.character(class(A1)) != "matrix"){ 
+	if (!is(A1, "matrix")){ 
 		stop("Input (A1) is of wrong class.") 
 	}
-	if (as.character(class(A2)) != "matrix"){ 
+	if (!is(A2, "matrix")){ 
 		stop("Input (A2) is of wrong class.") 
 	}
-	if (as.character(class(SigmaE)) != "matrix"){ 
+	if (!is(SigmaE, "matrix")){ 
 		stop("Input (SigmaE) is of wrong class.") 
 	}
 	if (!isSymmetric(SigmaE)){ 
@@ -45,7 +45,7 @@ dataVAR2 <- function(n, T, A1, A2, SigmaE, TburnIn=1000){
 	if (nrow(A1) != nrow(SigmaE)){ 
 		stop("Dimensions covariance matrix and A1 do not match.") 
 	}
-	if (as.character(class(n)) != "numeric"){ 
+	if (!is(n, "numeric")){ 
 		stop("Input (n) is of wrong class.") 
 	}
 	if (length(n) != 1){ 
@@ -57,7 +57,7 @@ dataVAR2 <- function(n, T, A1, A2, SigmaE, TburnIn=1000){
 	if (n < 0){ 
 		stop("Input (n) is not a positive integer.") 
 	}
-	if (as.character(class(T)) != "numeric"){ 
+	if (!is(T, "numeric")){ 
 		stop("Input (T) is of wrong class.") 
 	}
 	if (length(T) != 1){ 
@@ -69,7 +69,7 @@ dataVAR2 <- function(n, T, A1, A2, SigmaE, TburnIn=1000){
 	if (T < 0){ 
 		stop("Input (T) is not a positive integer.") 
 	}
-	if (as.character(class(TburnIn)) != "numeric"){ 
+	if (!is(TburnIn, "numeric")){ 
 		stop("Input (TburnIn) is of wrong class.") 
 	}
 	if (length(TburnIn) != 1){ 

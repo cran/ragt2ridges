@@ -7,12 +7,12 @@ loglikLOOCVcontourVAR1fused <- function(lambdaAgrid,
                                         verbose = TRUE, 
 					...){                                                                  
 
-	if (as.character(class(Y)) != "array"){ stop("Input (Y) is of wrong class.") }
+	if (!is(Y, "array")){ stop("Input (Y) is of wrong class.") }
 	if (length(dim(Y)) != 3){ stop("Input (Y) is of wrong dimensions: either covariate, time or sample dimension is missing.") }
-	if (as.character(class(id)) != "numeric" & as.character(class(id)) != "integer"){ stop("Input (id) is of wrong class.") }
+	if (!is(id, "numeric") & !is(id, "integer")){ stop("Input (id) is of wrong class.") }
 	if (length(id) != dim(Y)[3]){ stop("Input (id) is of wrong length: should equal sample dimension of Y.") }	
-	if (as.character(class(lambdaAgrid)) != "numeric"){ stop("Input (lambdaAgrid) is of wrong class.") }
-	if (as.character(class(lambdaFgrid)) != "numeric"){ stop("Input (lambdaFgrid) is of wrong class.") }
+	if (!is(lambdaAgrid, "numeric")){ stop("Input (lambdaAgrid) is of wrong class.") }
+	if (!is(lambdaFgrid, "numeric")){ stop("Input (lambdaFgrid) is of wrong class.") }
 	if (length(lambdaAgrid) < 2){ stop("Input (lambdaAgrid) is of wrong length.") }
 	if (length(lambdaFgrid) < 2){ stop("Input (lambdaFgrid) is of wrong length.") }
 	if (any(is.na(lambdaAgrid))){ stop("Input (lambdaAgrid) is not a vector of non-negative numbers.") }
@@ -22,8 +22,8 @@ loglikLOOCVcontourVAR1fused <- function(lambdaAgrid,
 	if (length(lambdaP) != 1){ stop("Input (lambdaP) is of wrong length.") }
 	if (is.na(lambdaP)){ stop("Input (lambdaP) is not a vector of non-negative numbers.") }
 	if (lambdaP <= 0){ stop("Input (lambdaP) is not a vector of non-negative numbers.") }
-	if (as.character(class(figure)) != "logical"){ stop("Input (figure) is of wrong class.") }
-	if (as.character(class(verbose)) != "logical"){ stop("Input (verbose) is of wrong class.") }
+	if (!is(figure, "logical")){ stop("Input (figure) is of wrong class.") }
+	if (!is(verbose, "logical")){ stop("Input (verbose) is of wrong class.") }
 
 	lambdaAgrid <- sort(lambdaAgrid)
 	lambdaFgrid <- sort(lambdaFgrid)

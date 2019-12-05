@@ -23,13 +23,13 @@ plotVAR1data <- function(Y,
 	########################################################################
 
 	# input checks
-	if (as.character(class(Y)) != "array"){ 
+	if (!is(Y, "array")){ 
 		stop("Input (Y) is of wrong class.") 
 	}
 	if (length(dim(Y)) != 3){ 
 		stop("Input (Y) is of wrong dimensions: either covariate, time or sample dimension is missing.") 
 	}
-	if (as.character(class(lwd)) != "numeric"){ 
+	if (!is(lwd, "numeric")){ 
 		stop("Input (lwd) is of wrong class.") 
 	}
 	if (length(lwd) != 1){ 

@@ -38,19 +38,19 @@ loglikLOOCVVAR1fused <- function(lambdas,
 	########################################################################
 
 	# input checks
-	if (as.character(class(Y)) != "array"){ 
+	if (!is(Y, "array")){ 
 		stop("Input (Y) is of wrong class.") 
 	}
 	if (length(dim(Y)) != 3){ 
 		stop("Input (Y) is of wrong dimensions: either covariate, time or sample dimension is missing.") 
 	}
-	if (as.character(class(id)) != "numeric" & as.character(class(id)) != "integer"){ 
+	if (!is(id, "numeric") & !is(id, "integer")){ 
 		stop("Input (id) is of wrong class.") 
 	}
 	if (length(id) != dim(Y)[3]){ 
 		stop("Input (id) is of wrong length: should equal sample dimension of Y.") 
 	}		
-	if (as.character(class(lambdas)) != "numeric"){ 
+	if (!is(lambdas, "numeric")){ 
 		stop("Input (lambdas) is of wrong class.") 
 	}
 	if (length(lambdas) != 3){ 
@@ -62,7 +62,7 @@ loglikLOOCVVAR1fused <- function(lambdas,
 	if (any(lambdas < 0)){ 
 		stop("Input (lambdas) is not a vector of non-negative numbers.") 
 	}
-	if (as.character(class(unbalanced)) != "matrix"){ 
+	if (!is(unbalanced, "matrix")){ 
 		stop("Input (unbalanced) is of wrong class.") 
 	}    
 	if (ncol(unbalanced) != 2){ 

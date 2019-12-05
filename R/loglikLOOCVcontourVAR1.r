@@ -41,16 +41,16 @@ loglikLOOCVcontourVAR1 <- function(lambdaAgrid,
 	########################################################################
 
 	# input checks
-	if (as.character(class(Y)) != "array"){ 
+	if (!is(Y, "array")){ 
 		stop("Input (Y) is of wrong class.") 
 	}
 	if (length(dim(Y)) != 3){ 
 		stop("Input (Y) is of wrong dimensions: either covariate, time or sample dimension is missing.") 
 	}
-	if (as.character(class(lambdaAgrid)) != "numeric"){ 
+	if (!is(lambdaAgrid, "numeric")){ 
 		stop("Input (lambdaAgrid) is of wrong class.") 
 	}
-	if (as.character(class(lambdaPgrid)) != "numeric"){ 
+	if (!is(lambdaPgrid, "numeric")){ 
 		stop("Input (lambdaPgrid) is of wrong class.") 
 	}
 	if (length(lambdaAgrid) != length(unique(lambdaAgrid))){ 
@@ -77,10 +77,10 @@ loglikLOOCVcontourVAR1 <- function(lambdaAgrid,
 	if (any(lambdaPgrid <= 0)){ 
 		stop("Input (lambdaPgrid) is not a vector of non-negative numbers.") 
 	}
-	if (as.character(class(figure)) != "logical"){ 
+	if (!is(figure, "logical")){ 
 		stop("Input (figure) is of wrong class.") 
 	}
-	if (as.character(class(verbose)) != "logical"){ 
+	if (!is(verbose, "logical")){ 
 		stop("Input (verbose) is of wrong class.") 
 	}
 

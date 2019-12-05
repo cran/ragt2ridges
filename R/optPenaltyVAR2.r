@@ -58,13 +58,13 @@ optPenaltyVAR2 <- function (Y,
 	########################################################################
 
 	# input checks
-	if (as.character(class(Y)) != "array"){ 
+	if (!is(Y, "array")){ 
 		stop("Input (Y) is of wrong class.") 
 	}
 	if (length(dim(Y)) != 3){ 
 		stop("Input (Y) is of wrong dimensions: either covariate, time or sample dimension is missing.") 
 	}
-	if (as.character(class(lambdaMin)) != "numeric"){ 
+	if (!is(lambdaMin, "numeric")){ 
 		stop("Input (lambdaMin) is of wrong class.") 
 	}
 	if (length(lambdaMin) != 3){ 
@@ -76,7 +76,7 @@ optPenaltyVAR2 <- function (Y,
 	if (any(lambdaMin < 0)){ 
 		stop("Input (lambdaMin) does not comprise of positive numbers.") 
 	}
-	if (as.character(class(lambdaMax)) != "numeric"){ 
+	if (!is(lambdaMax, "numeric")){ 
 		stop("Input (lambdaMax) is of wrong class.") 
 	}
 	if (length(lambdaMax) != 3){ 
@@ -91,7 +91,7 @@ optPenaltyVAR2 <- function (Y,
 	if (any(lambdaMax <= lambdaMin)){ 
 		stop("Input (lambdaMax) must be larger (element-wise) than lambdaMin") 
 	}
-	if (as.character(class(lambdaInit)) != "numeric"){ 
+	if (!is(lambdaInit, "numeric")){ 
 		stop("Input (lambdaInit) is of wrong class.") 
 	}
 	if (length(lambdaInit) != 3){ 

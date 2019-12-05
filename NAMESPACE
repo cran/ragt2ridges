@@ -16,7 +16,7 @@ importFrom(fdrtool, fdrtool)
 
 importFrom(Matrix, bandSparse, bdiag)
 
-importFrom(methods, as)
+importFrom(methods, as, is)
 
 importFrom(stats, constrOptim, cov2cor, nlm,  nlminb, optim, runif)
 

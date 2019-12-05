@@ -24,13 +24,13 @@ mutualInfoVAR2 <- function(A1,
 	########################################################################
 
 	# input checks
-	if (as.character(class(A1)) != "matrix"){ 
+	if (!is(A1, "matrix")){ 
 		stop("Input (A1) is of wrong class.") 
 	}
 	if (nrow(A1) != ncol(A1)){ 
 		stop("Matrix A1 is not square.") 
 	}
-	if (as.character(class(A2)) != "matrix"){ 
+	if (!is(A2, "matrix")){ 
 		stop("Input (A2) is of wrong class.") 
 	}
 	if (nrow(A2) != ncol(A2)){ 
@@ -39,7 +39,7 @@ mutualInfoVAR2 <- function(A1,
 	if (nrow(A1) != nrow(A2)){ 
 		stop("Matrices A1 and A2 do not have same dimensions.") 
 	}	
-	if (as.character(class(T)) != "numeric"){ 
+	if (!is(T, "numeric")){ 
 		stop("Input (T) is of wrong class.") 
 	}
 	if (length(T) != 1){ 
@@ -51,7 +51,7 @@ mutualInfoVAR2 <- function(A1,
 	if (T < 1){ 
 		stop("Input (T) should be an integer larger than one.") 
 	}
-	if (as.character(class(SigmaE)) != "matrix"){ 
+	if (!is(SigmaE, "matrix")){ 
 		stop("Input (SigmaE) is of wrong class.") 
 	}    
 	if (!isSymmetric(SigmaE)){ 

@@ -33,16 +33,16 @@ loglikVAR1 <- function(Y,
 	########################################################################
 
 	# input checks
-	if (as.character(class(Y)) != "array"){ 
+	if (!is(Y, "array")){ 
 		stop("Input (Y) is of wrong class.") 
 	}
 	if (length(dim(Y)) != 3){ 
 		stop("Input (Y) is of wrong dimensions: either covariate, time or sample dimension is missing.") 
 	}
-	if (as.character(class(A)) != "matrix"){ 
+	if (!is(A, "matrix")){ 
 		stop("Input (A) is of wrong class.") 
 	}
-	if (as.character(class(P)) != "matrix"){ 
+	if (!is(P, "matrix")){ 
 		stop("Input (P) is of wrong class.") 
 	}
 	if (!all(eigen(P)$values > 0)){ 
@@ -54,7 +54,7 @@ loglikVAR1 <- function(Y,
 	if (nrow(A) != nrow(P)){ 
 		stop("Dimensions precision matrix and A do not match.") 
 	}
-	if (as.character(class(unbalanced)) != "matrix"){ 
+	if (!is(unbalanced, "matrix")){ 
 		stop("Input (unbalanced) is of wrong class.") 
 	}    
 	if (ncol(unbalanced) != 2){ 

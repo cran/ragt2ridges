@@ -40,16 +40,16 @@ evaluateVAR1fit <- function(Y,
 	################################################################
 
 	# input checks
-	if (as.character(class(Y)) != "array"){ 
+	if (!is(Y, "array")){ 
 		stop("Input (Y) is of wrong class.") 
 	}
 	if (length(dim(Y)) != 3){ 
 		stop("Input (Y) is of wrong dimensions: either covariate, time or sample dimension is missing.") 
 	}
-	if (as.character(class(A)) != "matrix"){ 
+	if (!is(A, "matrix")){ 
 		stop("Input (A) is of wrong class.") 
 	}
-	if (as.character(class(SigmaE)) != "matrix"){ 
+	if (!is(SigmaE, "matrix")){ 
 		stop("Input (SigmaE) is of wrong class.") 
 	}
 	if (!isSymmetric(SigmaE)){ 
@@ -64,7 +64,7 @@ evaluateVAR1fit <- function(Y,
 	if (nrow(A) != nrow(SigmaE)){ 
 		stop("Dimensions covariance matrix and A do not match.") 
 	}
-	if (!is.null(unbalanced) & as.character(class(unbalanced)) != "matrix"){ 
+	if (!is.null(unbalanced) & !is(unbalanced, "matrix")){ 
 		stop("Input (unbalanced) is of wrong class.") 
 	}    
 	if (!is.null(unbalanced)){ 

@@ -48,13 +48,13 @@ sparsifyVAR1 <- function(A,
 	########################################################################
 
 	# input check
-	if (as.character(class(A)) != "matrix"){ 
+	if (!is(A, "matrix")){ 
 		stop("Input (A) is of wrong class.") 
 	}
 	if (nrow(A) != ncol(A)){ 
 		stop("Matrix A is not square.") 
 	}	
-	if (as.character(class(threshold)) != "character"){ 
+	if (!is(threshold, "character")){ 
 		stop("Input (threshold) is of wrong class.") 
 	}
 	if (missing(threshold)){ 
@@ -63,14 +63,14 @@ sparsifyVAR1 <- function(A,
 	if (!(threshold %in% c("absValue", "localFDR", "top"))){ 
 		stop("Input (threshold) should be one of {'absValue', 'localFDR', 'top'}") 
 	}
-	if (as.character(class(verbose)) != "logical"){ 
+	if (!is(verbose, "logical")){ 
 		stop("Input (verbose) is of wrong class.") 
 	}
 
 	# top elements of A
 	if (threshold == "top"){
 		# extra input checks for this option
-		if (class(top) != "numeric"){ 
+		if (!is(top, "numeric")){ 
 			stop("Input (top) is of wrong class") 
 		} 
 		if (length(top) != 1){ 
@@ -94,7 +94,7 @@ sparsifyVAR1 <- function(A,
 	# absolute value criterion
 	if (threshold == "absValue"){
 		# extra input checks for this option
-		if (class(absValueCut) != "numeric"){ 
+		if (!is(absValueCut, "numeric")){ 
 			stop("Input (absValueCut) is of wrong class") 
 		} 
 		if (length(absValueCut) != 1){ 
@@ -106,14 +106,14 @@ sparsifyVAR1 <- function(A,
         
 		# selection
 		nonzerosA <- which(abs(A) >= absValueCut, arr.ind=TRUE)
-		zerosA <- which(abs(A) < absValueCut, arr.ind=TRUE)
-		H0statA <- NULL
+		zerosA    <- which(abs(A) < absValueCut, arr.ind=TRUE)
+		H0statA   <- NULL
 	}
 
 	# local FDR values 
 	if (threshold=="localFDR"){
 		# extra input checks for this option
-		if (as.character(class(SigmaE)) != "matrix"){ 
+		if (!is(SigmaE, "matrix")){ 
 			stop("Input (SigmaE) is of wrong class.") 
 		}
 		if (!isSymmetric(SigmaE)){ 
@@ -125,7 +125,7 @@ sparsifyVAR1 <- function(A,
 		if (nrow(A) != nrow(SigmaE)){ 
 			stop("Dimensions covariance matrix and A do not match.") 
 		}
-		if (as.character(class(FDRcut)) != "numeric"){ 
+		if (!is(FDRcut, "numeric")){ 
 			stop("Input (FDRcut) is of wrong class.") 
 		}
 		if (length(FDRcut) != 1){ 
@@ -140,7 +140,7 @@ sparsifyVAR1 <- function(A,
 		if (FDRcut >= 1){ 
 			stop("Input (FDRcut) should be smaller than one.") 
 		}
-		if (as.character(class(statistics)) != "logical"){ 
+		if (!is(statistics, "logical")){ 
 			stop("Input (testStat) is of wrong class.") 
 		}
 	
@@ -148,7 +148,7 @@ sparsifyVAR1 <- function(A,
 		Syy <- SigmaE
 		for (tau in 1:1000) {
 			Atau <- A %^% tau
-			Syy <- Syy + Atau %*% SigmaE %*% t(Atau)
+			Syy  <- Syy + Atau %*% SigmaE %*% t(Atau)
 			if (max(abs(Atau)) < 10^(-20)){ break }
 		}
 

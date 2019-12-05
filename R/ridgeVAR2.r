@@ -111,13 +111,13 @@ ridgeVAR2 <- function(Y,
 	########################################################################
 
 	# input checks
-	if (as.character(class(Y)) != "array"){ 
+	if (!is(Y, "array")){ 
 		stop("Input (Y) is of wrong class.") 
 	}
 	if (length(dim(Y)) != 3){ 
 		stop("Input (Y) is of wrong dimensions: either covariate, time or sample dimension is missing.") 
 	}
-	if (as.character(class(lambdaA1)) != "numeric"){ 
+	if (!is(lambdaA1, "numeric")){ 
 		stop("Input (lambdaA1) is of wrong class.") 
 	}
 	if (length(lambdaA1) != 1){ 
@@ -129,7 +129,7 @@ ridgeVAR2 <- function(Y,
 	if (lambdaA1 < 0){ 
 		stop("Input (lambdaA1) is not a non-negative number.") 
 	}
-	if (as.character(class(lambdaA2)) != "numeric"){ 
+	if (!is(lambdaA2, "numeric")){ 
 		stop("Input (lambdaA2) is of wrong class.") 
 	}
 	if (length(lambdaA2) != 1){ 
@@ -141,7 +141,7 @@ ridgeVAR2 <- function(Y,
 	if (lambdaA2 < 0){ 
 		stop("Input (lambdaA2) is not a non-negative number.") 
 	}
-	if (as.character(class(lambdaP)) != "numeric"){ 
+	if (!is(lambdaP, "numeric")){ 
 		stop("Input (lambdaP) is of wrong class.") 
 	}
 	if (length(lambdaP) != 1){ 
@@ -153,7 +153,7 @@ ridgeVAR2 <- function(Y,
 	if (lambdaP < 0){ 
 		stop("Input (lambdaP) is not a non-negative number.") 
 	}
-	if (!is.null(unbalanced) & as.character(class(unbalanced)) != "matrix"){ 
+	if (!is.null(unbalanced) & !is(unbalanced, "matrix")){ 
 		stop("Input (unbalanced) is of wrong class.") 
 	}    
 	if (!is.null(unbalanced)){ 
@@ -161,29 +161,29 @@ ridgeVAR2 <- function(Y,
 			stop("Wrong dimensions of the matrix unbalanced.") 
 		} 
 	} 
-	if (as.character(class(zerosA1fit)) != "character"){ 
+	if (!is(zerosA1fit, "character")){ 
 		stop("Input (zerosA1fit) is of wrong class.") 
 	}
-	if (as.character(class(zerosA1fit)) == "character"){ 
+	if (is(zerosA1fit, "character")){ 
 		if (!(zerosA1fit %in% c("dense", "sparse"))){ 
 			stop("Input (zerosA1fit) ill-specified.") 
 		} 
 	}
-	if (as.character(class(zerosA2fit)) != "character"){ 
+	if (!is(zerosA2fit, "character")){ 
 		stop("Input (zerosA2fit) is of wrong class.") 
 	}
-	if (as.character(class(zerosA2fit)) == "character"){ 
+	if (!is(zerosA2fit, "character")){ 
 		if (!(zerosA2fit %in% c("dense", "sparse"))){ 
 			stop("Input (zerosA2fit) ill-specified.") 
 		} 
 	}
-	if (as.character(class(diagP)) != "logical"){ 
+	if (!is(diagP, "logical")){ 
 		stop("Input (diagP) is of wrong class.") 
 	}
-	if (as.character(class(efficient)) != "logical"){ 
+	if (!is(efficient, "logical")){ 
 		stop("Input (efficient) is of wrong class.") 
 	}
-	if (as.character(class(nInit)) != "numeric" & as.character(class(nInit)) != "logical"){ 
+	if (!is(nInit, "numeric")){ 
 		stop("Input (nInit) is of wrong class.") 
 	}
 	if (length(nInit) != 1){ 
@@ -195,7 +195,7 @@ ridgeVAR2 <- function(Y,
 	if (nInit < 0){ 
 		stop("Input (nInit) is not a positive integer.") 
 	}
-	if (as.character(class(minSuccDiff)) != "numeric"){ 
+	if (!is(minSuccDiff, "numeric")){ 
 		stop("Input (minSuccDiff) is of wrong class.") 
 	}
 	if (length(minSuccDiff) != 1){ 
@@ -207,7 +207,7 @@ ridgeVAR2 <- function(Y,
 	if (minSuccDiff <= 0){ 
 		stop("Input (minSuccDiff) is not a positive number.") 
 	}
-	if (as.character(class(targetA1)) != "matrix"){ 
+	if (!is(targetA1, "matrix")){ 
 		stop("Input (targetA1) is of wrong class.") 
 	}
 	if (!is.null(targetA1)){ 
@@ -220,7 +220,7 @@ ridgeVAR2 <- function(Y,
 			stop("Dimensions of input (# columns of targetA1) do not match that of other input (# variates of Y).") 
 		} 
 	}
-	if (as.character(class(targetA2)) != "matrix"){ 
+	if (!is(targetA2, "matrix")){ 
 		stop("Input (targetA2) is of wrong class.") 
 	}
 	if (!is.null(targetA2)){ 
@@ -236,20 +236,20 @@ ridgeVAR2 <- function(Y,
 	if (is.null(targetP)){ 
 		targetP <- "Null" 
 	}    
-	if (as.character(class(targetP)) != "matrix"){ 
+	if (!is(targetP, "matrix")){ 
 		stop("Input (targetP) is of wrong class.") 
 	}    
-	if (as.character(class(targetP)) == "matrix"){ 
+	if (!is(targetP, "matrix")){ 
 		if(!isSymmetric(targetP)){ 
 			stop("Non-symmetrical target for the precision matrix provided") 
 		} 
 	} 
-	if (diagP & as.character(class(targetP)) == "matrix"){ 
+	if (diagP & is(targetP, "matrix")){ 
 		if(max(abs(targetP[upper.tri(targetP)])) != 0){ 
 			stop("Inconsistent input (targetP v. diagP) provided") 
 		} 
 	}
- 	if (as.character(class(targetPtype)) != "character"){ 
+ 	if (!is(targetPtype, "character")){ 
 		stop("Input (targetPtype) of wrong class.") 
 	} 
 	if (targetPtype != "none"){ 
@@ -257,12 +257,12 @@ ridgeVAR2 <- function(Y,
 			stop("Wrong default target for the precision matrix provided: see default.target for the options.") 
 		} 
 	} 
-	if (as.character(class(targetP)) == "matrix"){ 
+	if (!is(targetP, "matrix")){ 
 		if (dim(Y)[1] != nrow(targetP)){ 
 			stop("Dimensions of input (targetP) do not match that of other input (Y).") 
 		} 
 	}
-	if (!is.null(zerosA1) & as.character(class(zerosA1)) != "matrix"){ 
+	if (!is.null(zerosA1) & !is(zerosA1, "matrix")){ 
 		stop("Input (zerosA1) is of wrong class.") 
 	}    
 	if (!is.null(zerosA1)){ 
@@ -273,7 +273,7 @@ ridgeVAR2 <- function(Y,
 	if (!is.null(zerosA1)){ 
 		zerosA1 <- zerosA1[order(zerosA1[,2], zerosA1[,1]),] 
 	}
-	if (!is.null(zerosA2) & as.character(class(zerosA2)) != "matrix"){ 
+	if (!is.null(zerosA2) & !is(zerosA2, "matrix")){ 
 		stop("Input (zerosA2) is of wrong class.") 
 	}    
 	if (!is.null(zerosA2)){ 
@@ -284,7 +284,7 @@ ridgeVAR2 <- function(Y,
 	if (!is.null(zerosA2)){ 
 		zerosA2 <- zerosA2[order(zerosA2[,2], zerosA2[,1]),] 
 	}
-	if (!is.null(zerosP) & as.character(class(zerosP)) != "matrix"){ 
+	if (!is.null(zerosP) & !is(zerosP, "matrix")){ 
 		stop("Input (zerosP) is of wrong class.") 
 	}    
 	if (!is.null(zerosP)){ 
