@@ -1,4 +1,4 @@
-b6850b6c6bbf31633a0e279c2e383d81 *DESCRIPTION
+2272497c255f34a002efb8f7b896235d *DESCRIPTION
 11e9fb623e00cd39bc0cda176585f6c8 *NAMESPACE
 d351304523d244d455d927bac1dee42c *R/CIGofVAR1.r
 32d957be82ba6cb2437c1b66fdc2fad9 *R/CIGofVAR2.r
@@ -48,7 +48,7 @@ d4cd368b0c4ab880830f0367b90acce8 *R/sparsifyVAR2.r
 30807f3b1ce773c8cc6f6c0c2eac0fbb *R/sparsifyVARX1.r
 feb022797d413a9339c6b8f9da586304 *data/hpvP53.rda
 76f4fc7ffff4436094b3753376500ee2 *inst/CITATION
-c5beba9590da7d3943a904b9daaf731a *inst/NEWS.Rd
+5ae067f6dcd5b457d82da8c86bba8721 *inst/NEWS.Rd
 e41de4653976d1cfdcf0b547d96a5267 *inst/include/ragt2ridges.h
 83832be30b97f5a5ebadd9b8a22310bf *inst/include/ragt2ridges_RcppExports.h
 60de7b375b8f58be36b73407dacf3e5a *man/CIGofVAR1.Rd
